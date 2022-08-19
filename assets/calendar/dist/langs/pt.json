@@ -1,0 +1,48 @@
+{
+    "days": [
+        "Domingo",
+        "Segunda",
+        "Terça",
+        "Quarta",
+        "Quinta",
+        "Sexta",
+        "Sábado"
+    ],
+    "daysShort": [
+        "Dom",
+        "Seg",
+        "Ter",
+        "Qua",
+        "Qui",
+        "Sex",
+        "Sab"
+    ],
+    "months": [
+        "Janeiro",
+        "Fevereiro",
+        "Março",
+        "April",
+        "Maio",
+        "Junho",
+        "Juho",
+        "Agosto",
+        "Setembro",
+        "Outubro",
+        "Novembro",
+        "Dezembro"
+    ],
+    "monthsShort": [
+        "Jan",
+        "Fev",
+        "Mar",
+        "Abr",
+        "Mai",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Set",
+        "Out",
+        "Nov",
+        "Dez"
+    ]
+}

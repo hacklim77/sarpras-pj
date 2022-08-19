@@ -1,0 +1,55 @@
+.nav-item > a.nav-link.active {
+	color: #2196f3 !important; 
+}
+input.form-date {
+	line-height: normal;
+}
+.layer.head{
+	background: linear-gradient(to right,#2980b9,#349adb);
+}
+
+/*custom select2*/
+	/* .cus-select{} */
+	.cus-select .select2.select2-container{
+	    min-width: 100%;
+	    height: 35px;
+	}
+	.cus-select .select2-container--default .select2-selection--single .select2-selection__rendered {
+	    height: 100%;
+	    line-height: 30px;
+	}
+	.cus-select .select2-container--default .select2-selection--single {
+	    height: 100%;
+	}
+	.cus-select .select2-container--default .select2-selection--single .select2-selection__arrow {
+	    height: 90%;
+	}
+/*custom select2 end*/
+
+/*notif*/
+	.p-relative {
+		position: relative;
+	}
+	.mynotif {
+		position: absolute; top: 0; left: 0; width: 100%; height: 50px;
+	}
+	.mynotif .alert {
+		/*margin : 15px;*/
+		margin-top: 0px;
+		display: none;
+		z-index: 1;
+	}
+/*notif end*/
+
+/*loading frame*/
+	.loading_frame {
+	    position: absolute;
+	    width: 100%;
+	    height: 100%;
+	    z-index: 1;
+		left: 0;
+	    top: 0;
+	    background-color: white;
+	    text-align: center;
+	}
+/*loading frame end*/
