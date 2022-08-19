@@ -87,7 +87,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="infoarea">
-                                    <?php require_once "cek_ketersediaan.php" ?>
+                                    <?php require_once "coba.php" ?>
                                 </div>
                             </div>
                         </div>
