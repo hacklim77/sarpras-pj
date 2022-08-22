@@ -1,7 +1,5 @@
 <?php
 
-$link = $this->load->database();
-
 $check     = ''; 
 $tgl       = date('Y-m-d');
 $h7        = date('Y-m-d',strtotime("+7 days"));
@@ -39,9 +37,25 @@ $h7        = date('Y-m-d',strtotime("+7 days"));
 
 // cek barang
     if ($hari != 'Sunday' or strtotime($tgl) >= strtotime($h7)) {
-
-    // cek barang dan stock yg dapat dipinjam
+        
+        // cek barang dan stock yg dapat dipinjam
         $cek_barang = array();
+        $a=0;
+        $b=0;
+
+        while ($rcb = $nomor) {
+            if ($rcb['id_barang'] == 0) {
+                $b++;
+                $cek_barang[$rcb['id_barang']] == array('stock' => $b, 'nama_barang' => $rcb['nama_barang']);
+            } else {
+                $b=1;
+                $a=$rcb['id_barang'];
+                $cek_barang[$rcb['id_barang']] == array('stock' => $b, 'nama_barang' => $rcb['nama_barang']);
+            }
+        }
+
+    
+        /* $cek_barang = array();
         $sql   = "SELECT * FROM penomoran inner join barang on penomoran.id_barang=barang.id_barang where penomoran.id_lokasi = '1' ORDER BY penomoran.id_barang ASC";
         $query = mysqli_query($link, $sql);
         $a = 0;
@@ -61,16 +75,33 @@ $h7        = date('Y-m-d',strtotime("+7 days"));
                                                         'nama_barang' => $rcb['nama_barang']
                                                     ); 
             }
-        }
+        } */
 
     // cek ketersediaan barang pada hari yg dipilih
+
+       
+
         // $sql = "SELECT * from barang_keluar where status_kembali = '0' ORDER BY id_barang ASC";
-        $sql = "SELECT * from barang_pinjam inner join barang_keluar on barang_keluar.id_barang_keluar=barang_pinjam.id_barang_keluar where barang_keluar.status_kembali = '0' and barang_keluar.tgl_kembali > '$tgl' ORDER BY barang_pinjam.id_barang ASC";
-        $query = mysqli_query($link, $sql);
+        /* $sql = "SELECT * from barang_pinjam inner join barang_keluar on barang_keluar.id_barang_keluar=barang_pinjam.id_barang_keluar where barang_keluar.status_kembali = '0' and barang_keluar.tgl_kembali > '$tgl' ORDER BY barang_pinjam.id_barang ASC"; */
+        //$query = mysqli_query($link, $sql);
         $stock = array();
         $a = 0;
         $b = 0;
-        while ( $rcb = mysqli_fetch_array($query)) {
+        
+        while ($rcb = $pinjam) {
+            if (strtotime($tgl) >= strtotime($rcb['tgl_keluar']) and strtotime($tgl) < strtotime($rcb['tgl_kembali'])) {
+                
+                if ($rcb['id_barang'] == $a) {
+                    $b = $rcb['jumlah'];
+                    $stock[$rcb['id_barang']] = $stock[$rcb['id_barang']]+$b;
+                } else{
+                    $a = $rcb['id_barang'];
+                    $b = $rcb['jumlah'];
+                    $stock[$rcb['id_barang']] = $b;
+                }
+            }
+        }
+        /* while ( $rcb = mysqli_fetch_array($query)) {
             if (strtotime($tgl) >= strtotime($rcb['tgl_keluar']) and strtotime($tgl) < strtotime($rcb['tgl_kembali'])) {
                 
                 if ($rcb['id_barang'] == $a) {
@@ -82,7 +113,7 @@ $h7        = date('Y-m-d',strtotime("+7 days"));
                     $stock[$rcb['id_barang']] = $b;
                 }
             }
-        }
+        } */
 
     }
 ?>
