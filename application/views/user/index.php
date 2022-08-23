@@ -17,7 +17,7 @@
                       <img alt="" src="assets/logo.png" style="width: 65px; padding: 10px; display: inline-block;">
                       <h4 style="display: inline-block; margin-top: 5px;">STIKES NASIONAL</h4>
                   </a>
-                  <div class="form-inline">
+                 <!--  <div class="form-inline">
                         
                         <li class="nav-item" style="list-style: none;">
                             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
@@ -32,7 +32,7 @@
                             <a class="nav-link" href="#">Disabled</a>
                         </li>
                         
-                  </div>
+                  </div> -->
                  
                 </nav>    
             </div>
@@ -64,7 +64,7 @@
                         <div class="row">
                             <div class="col-md-8">
                                 <!-- <div id="full-calendar"></div> -->
-                                <div class="hello-week">
+                                <!-- <div class="hello-week">
                                     <div class="hello-week__header">
                                         <button class="btn demo-prev">◀</button>
                                         <div class="hello-week__label"></div>
@@ -72,7 +72,7 @@
                                     </div>
                                     <div class="hello-week__week"></div>
                                     <div class="hello-week__month"></div>
-                                </div>
+                                </div> -->
 
                                 <!-- <div class="demo-exemplo">
                                     <p><strong>Today:</strong> </p>
@@ -84,27 +84,41 @@
                                     <p><strong>Picked Days:</strong></p>
                                     <ul class="demo-picked"><span>n/a</span></ul>
                                 </div> -->
-                                <!-- <div class="card">
+                                <div class="card">
+                                    <div class="card-header text-center" style="background-color: purple; color:white">
+                                        <h3>Form Peminjaman</h3>
+                                    </div>    
                                     <div class="card-body">
-
                                         <form>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
-                                                <label for="inputEmail4">Email</label>
+                                                <label for="inputEmail4">Nama Peminjam</label>
                                                 <input type="email" class="form-control" id="inputEmail4">
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                <label for="inputPassword4">Password</label>
+                                                <label for="inputPassword4">No Handphone</label>
                                                 <input type="password" class="form-control" id="inputPassword4">
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="inputAddress">Address</label>
-                                                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputAddress2">Address 2</label>
-                                                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="inputAddress">Tanggal Pinjam</label>
+                                                    <input type="date" class="form-control" id="inputAddress" value="<?= date('Y-m-d',strtotime('+1 days')) ?>">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label>Lama Pinjam</label>
+                                                    <div class="input-group">
+                                                                <input name="lamapinjam" type="number" class="form-control" value="0" min="0">
+                                                                <div class="input-group-addon bgc-white">
+                                                                    hari
+                                                                </div>
+                                                    </div>
+                                                    <!--
+                                                    <input type="number" class="form-control" id="inputAddress" value="0" min="0">
+                                                    <div class="input-group-append">
+                                                        <span class="form-group-text" id="basic-addon2">@example.com</span>
+                                                    </div> -->
+                                                </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="fw-500">Unit yang dipinjam</label>
@@ -117,28 +131,20 @@
                                                         <div class="add_barang"></div>
                                                     </div>
                                             </div>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                <label for="inputCity">City</label>
-                                                <input type="text" class="form-control" id="inputCity">
-                                                </div>
-                                                <div class="form-group col-md-4">
-                                                <label for="inputState">State</label>
-                                                <select id="inputState" class="form-control">
-                                                    <option selected>Choose...</option>
-                                                    <option>...</option>
-                                                </select>
-                                                </div>
-                                                <div class="form-group col-md-2">
-                                                <label for="inputZip">Zip</label>
-                                                <input type="text" class="form-control" id="inputZip">
-                                                </div>
-                                            </div>
+                                            <div class="form-group">
+                                                        <label class="fw-500">Keterangan Peminjaman</label>
+                                                        <textarea name="keterangan" class="form-control" rows="5"></textarea>
+                                                    </div>
+                                            <!-- <div class="form-group">
+                                                <label for="inputAddress2">Acara</label>
+                                                <textarea name="" id="" cols="30" rows="10"></textarea>
+                                                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                                            </div> -->
                                             
                                             <button type="submit" class="btn btn-primary">Sign in</button>
                                         </form>
                                     </div>
-                                </div>  -->   
+                                </div>    
 
                             </div>
                             <div class="col-md-4">

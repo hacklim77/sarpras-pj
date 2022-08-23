@@ -1,0 +1,28 @@
+.scroll-bg {
+    background-color: white;
+    width: 100%;
+    margin: 3% auto;
+}
+
+.scroll-div{
+    width: 100%;
+    padding: 5px;
+    background-color: white;
+    height: 435px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+  
+  /* The progress container (grey background) */
+  .progress-container {
+    width: 100%;
+    height: 8px;
+    background: #ccc;
+  }
+  
+  /* The progress bar (scroll indicator) */
+  .progress-bar {
+    height: 8px;
+    background: #04AA6D;
+    width: 0%;
+  }

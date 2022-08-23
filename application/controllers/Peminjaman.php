@@ -37,6 +37,9 @@
             $this->user_temp->load('templates/core','user/coba',$data);
         }
 
-        
+        public function add()
+        {
+            $this->load->view('user/add');
+        }
 
     }

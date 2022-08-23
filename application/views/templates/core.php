@@ -12,6 +12,8 @@
     </style>
     <link href="<?= base_url('assets/css/priv/style.css') ?>" rel="stylesheet">
     <link href="<?= base_url('dist/helloweek.css?v=3') ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/css/priv/scroll.css') ?>" rel="stylesheet">
+    
     <script src="<?= base_url('assets/js/jquery.min.js'); ?>"></script>
     
 </head>

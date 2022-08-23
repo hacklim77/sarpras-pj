@@ -43,34 +43,26 @@
         } */
     ?>
 
-    <div class="card">
-        <ul class="list-group list-group-flush">
-            <?php foreach ($barang as $key) :?>
-            <li class="list-group-item">
-                <?= $key['nama_barang'] ?>
-                <br><small>Stok: <b><?= $key['jumlah'] ?></b></small>
-            </li>
-            <?php endforeach ?>
-        </ul>
-    </div>
+    
 
     <div class="card">
-        <div class="card-body">
-            <table>
-                <thead>
-                    <tr>
-                        <td>Nama Barang</td>
-                        <td>Jumlah</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($barang as $key) :?>
-                        <tr>
-                            <td><?= $key['nama_barang'] ?></td>
-                            <td><?= $key['jumlah'] ?></td>
-                        </tr>
-                    <?php endforeach ?>
-                </tbody>
-            </table>
+        <div class="card-header text-center" style="background-color: purple; color:white">
+            <h3>List Barang Yang Tersedia</h3>
+        </div>
+        <div class="scroll-bg">
+        <div class="scroll-div">
+            
+            <ul class="list-group list-group-flush">
+                <?php foreach ($barang as $key) :?>
+                <li class="list-group-item">
+                    <?= $key['nama_barang'] ?>
+                    <a class="btn btn-success btn-sm" style="float: right; margin-top: 10px;" href="">Pinjam</a>
+                    <br><small style="font-size: 9pt;">Stok: <b><?= $key['jumlah'] ?></b></small>
+                    
+                </li>
+                <?php endforeach ?>
+            </ul>
+        </div>
         </div>
     </div>
+                
