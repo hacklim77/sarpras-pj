@@ -120,17 +120,24 @@
                                                     </div> -->
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label class="fw-500">Unit yang dipinjam</label>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-8">
+                                                    <label class="fw-500">Unit yang dipinjam</label>
+                                                    <input type="text" class="form-control" name="nama_barang" id="nama_barang" readonly>
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label class="fw-500">Jumlah</label>
+                                                    <input type="number" class="form-control" name="jumlah" id="jumlah" min="1">   
+                                                </div>
+                                            </div>
                                                     <div class="mb-1">
                                                         <p>
                                                             <i>untuk memasukkan barang yang akan dipinjam silahkan klik tombol <span class="ti-new-window" style="color: #0f9aee;"></span> pada list barang disamping.</i>
                                                         </p>
                                                     </div>
-                                                    <div class="list_barang">
+                                                    <!-- <div class="list_barang">
                                                         <div class="add_barang"></div>
-                                                    </div>
-                                            </div>
+                                                    </div> -->
                                             <div class="form-group">
                                                         <label class="fw-500">Keterangan Peminjaman</label>
                                                         <textarea name="keterangan" class="form-control" rows="5"></textarea>
@@ -153,7 +160,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modal fade" id="calendar-edit">
+                        <!-- <div class="modal fade" id="calendar-edit">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="bd p-15">
@@ -203,7 +210,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </main>
@@ -220,9 +227,9 @@
             </footer>
         </div>
     </div>
-    <script type="text/javascript" src="<?= base_url('assets/css/priv/vendor.js?v=5'); ?>"></script>
+    <script type="text/javascript" src="<?= base_url('assets/css/priv/vendor.js'); ?>"></script>
     <script type="text/javascript" src="<?= base_url('assets/css/priv/bundle.js'); ?>"></script>
-    <script src="<?= base_url('dist/helloweek.min.js?v=2'); ?>" type="text/javascript"></script>
+    <script src="<?= base_url('dist/helloweek.min.js'); ?>" type="text/javascript"></script>
     <script>
         const prev = document.querySelector('.demo-prev');
         const next = document.querySelector('.demo-next');
@@ -314,5 +321,11 @@
             $(this).val(max);
         }
     });
+</script>
 
-</script>    
+<script>
+    function pilih(nama,jumlah){
+        $("#nama_barang").val(nama);
+        $("#jumlah").val();
+    }
+</script>

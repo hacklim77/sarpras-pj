@@ -56,7 +56,7 @@
                 <?php foreach ($barang as $key) :?>
                 <li class="list-group-item">
                     <?= $key['nama_barang'] ?>
-                    <a class="btn btn-success btn-sm" style="float: right; margin-top: 10px;" href="">Pinjam</a>
+                    <button class="btn btn-success btn-sm" style="float: right; margin-top: 10px;" onclick="pilih('<?= $key['nama_barang']?>','<?= $key['jumlah']?>')">Pinjam</button>
                     <br><small style="font-size: 9pt;">Stok: <b><?= $key['jumlah'] ?></b></small>
                     
                 </li>
@@ -65,4 +65,6 @@
         </div>
         </div>
     </div>
+
+
                 

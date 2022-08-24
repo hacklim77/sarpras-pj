@@ -39,7 +39,8 @@
 
         public function add()
         {
-            $this->load->view('user/add');
+            $data['barang'] = $this->M_barang->getbarang();
+            $this->load->view('user/add',$data);
         }
 
     }

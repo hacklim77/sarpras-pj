@@ -2,13 +2,74 @@
 <html>
 <head>
     <title>PHP Codeigniter - Dynamically Add or Remove input fields using JQuery</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
 </head>
 <body>
-   
+<h1>Coba Tabel</h1>
 <div class="container">
+    <div class="row">
+        <div class="col-md-6">
+        <button class="btn btn-primary btn-sm" id="add">add</button>
+            <table class="table" id="databarang">
+                <thead>
+                    <tr>
+                    <th>No</th>
+                    <th>Kode Barang</th>
+                    <th>Nama Barang</th>
+                    <th>Jumlah</th>
+                    <th>select</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php $no=1; foreach ($barang as $key):?>
+                        <tr><td><?= $no++ ?></td>
+                        <td><?= $key['kode_barang'] ?></td>
+                        <td><?= $key['nama_barang'] ?></td>
+                        
+                        <td><input type="checkbox"></td>
+                        <!-- <td><button class="btn btn-primary btn-sm" id="add">add</button></td> -->
+                        </tr>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <table class="table" id="databarang2">
+                <thead>
+                    <tr>
+                    <th>No</th>
+                    <th>Kode Barang</th>
+                    <th>Nama Barang</th>
+                    
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+            <!-- <div class="card">
+                <div class="card-header">
+                    Barang yang dipilih
+                </div>
+                <div class="card-body" id="list">
+                    <li></li>    
+                </div>            
+            </div> -->
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function(){
+        $(document).on("click","#add", function(){
+            var getselectedvalues=$("#databarang input:checked").parents("tr").appendTo($("#databarang2 tbody").add(getselectedvalues));
+        })
+    })
+</script>
+   
+<!-- <div class="container">
     <h2 align="center">PHP - Dynamically Add or Remove input fields using JQuery</h2>  
     <div class="form-group">
          <form name="add_name" method="POST" action="/add-more-post">
@@ -42,6 +103,6 @@
       });  
   
     });  
-</script>
+</script> -->
 </body>
 </html>
