@@ -7,7 +7,7 @@
     
 </head>
 <body>
-<h1>Coba Tabel</h1>
+<!-- <h1>Coba Tabel</h1>
 <div class="container">
     <div class="row">
         <div class="col-md-6">
@@ -29,7 +29,7 @@
                         <td><?= $key['nama_barang'] ?></td>
                         
                         <td><input type="checkbox"></td>
-                        <!-- <td><button class="btn btn-primary btn-sm" id="add">add</button></td> -->
+                        <td><button class="btn btn-primary btn-sm" id="add">add</button></td>
                         </tr>
                     <?php endforeach ?>
                 </tbody>
@@ -48,7 +48,7 @@
                 <tbody>
                     
                 </tbody>
-            </table>
+            </table> -->
             <!-- <div class="card">
                 <div class="card-header">
                     Barang yang dipilih
@@ -69,7 +69,7 @@
     })
 </script>
    
-<!-- <div class="container">
+<div class="container">
     <h2 align="center">PHP - Dynamically Add or Remove input fields using JQuery</h2>  
     <div class="form-group">
          <form name="add_name" method="POST" action="/add-more-post">
@@ -103,6 +103,6 @@
       });  
   
     });  
-</script> -->
+</script>
 </body>
 </html>

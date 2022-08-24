@@ -324,8 +324,12 @@
 </script>
 
 <script>
-    function pilih(nama,jumlah){
+    function pilih(x){
+        var nama = $(x).data("nama"); 
+        var jumlah = $(x).data("jumlah"); 
+        
         $("#nama_barang").val(nama);
-        $("#jumlah").val();
+
+        $("#jumlah").val(jumlah);
     }
 </script>
