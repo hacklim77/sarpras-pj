@@ -113,42 +113,31 @@
                                                                     hari
                                                                 </div>
                                                     </div>
-                                                    <!--
-                                                    <input type="number" class="form-control" id="inputAddress" value="0" min="0">
-                                                    <div class="input-group-append">
-                                                        <span class="form-group-text" id="basic-addon2">@example.com</span>
-                                                    </div> -->
+                                                    
                                                 </div>
                                             </div>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-8">
-                                                    <label class="fw-500">Unit yang dipinjam</label>
-                                                    <input type="text" class="form-control" name="nama_barang" id="nama_barang" readonly>
-                                                </div>
-                                                <div class="form-group col-md-4">
-                                                    <label class="fw-500">Jumlah</label>
-                                                    <input type="number" class="form-control" name="jumlah" id="jumlah" min="1">   
-                                                </div>
-                                            </div>
-                                                    <div class="mb-1">
-                                                        <p>
-                                                            <i>untuk memasukkan barang yang akan dipinjam silahkan klik tombol <span class="ti-new-window" style="color: #0f9aee;"></span> pada list barang disamping.</i>
-                                                        </p>
-                                                    </div>
-                                                    <!-- <div class="list_barang">
-                                                        <div class="add_barang"></div>
-                                                    </div> -->
                                             <div class="form-group">
-                                                        <label class="fw-500">Keterangan Peminjaman</label>
-                                                        <textarea name="keterangan" class="form-control" rows="5"></textarea>
-                                                    </div>
-                                            <!-- <div class="form-group">
-                                                <label for="inputAddress2">Acara</label>
-                                                <textarea name="" id="" cols="30" rows="10"></textarea>
-                                                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-                                            </div> -->
-                                            
-                                            <button type="submit" class="btn btn-primary">Sign in</button>
+                                                <table class="table">
+                                                    <tr>
+                                                        <th>Barang yang dipinjam</th>
+                                                        <th>Jumlah</th>
+                                                    </tr>
+                                                    <tbody id="barangpinjam">
+                                                        
+                                                    </tbody>
+                                                </table>
+                                                <div class="mb-1">
+                                                    <p>
+                                                        <i>untuk memasukkan barang yang akan dipinjam silahkan klik tombol <span class="ti-new-window" style="color: #0f9aee;"></span> pada list barang disamping.</i>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                                    
+                                            <div class="form-group">
+                                                <label class="fw-500">Keterangan Peminjaman</label>
+                                                <textarea name="keterangan" class="form-control" rows="5"></textarea>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Pinjam</button>
                                         </form>
                                     </div>
                                 </div>    
@@ -160,57 +149,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="modal fade" id="calendar-edit">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="bd p-15">
-                                        <h5 class="m-0">Form Peminjaman</h5>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form method="post">
-                                            <div class="form-group">
-                                                <label class="fw-500">Nama Peminjam</label>
-                                                <input name="nama_peminjam" class="form-control bdc-grey-200">
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="fw-500">Unit</label>
-                                                <input name="unit" readonly="true" class="form-control bdc-grey-200" value="Alat 1">
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="fw-500">Jumlah</label>
-                                                <input type="number" min="1" name="jumlah" class="form-control bdc-grey-200" value="1">
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6"><label class="fw-500">Tanggal Pinjam</label>
-                                                    <div class="input-icon form-group">
-                                                        <div class="input-group">
-                                                            <input name="tgl_keluar" type="text" class="form-control bdc-grey-200" data-date-format="yyyy/mm/dd" readonly>
-                                                            <div class="input-group-addon bgc-white bd bdwR-0"><i class="ti-calendar"></i></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6"><label class="fw-500">Lama Pinjam</label>
-                                                    <div class="input-group">
-                                                        <input name="lamapinjam" type="number" class="form-control bdc-grey-200">
-                                                        <div class="input-group-addon bgc-white bd bdwR-0">
-                                                            hari
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="fw-500">Keterangan Peminjaman</label>
-                                                <textarea name="keterangan" class="form-control bdc-grey-200" rows="5"></textarea>
-                                            </div>
-                                            <div class="text-right">
-                                                <input type="hidden" name="barang" value="">
-                                                <button type="submit" name="submit" class="btn btn-primary cur-p">Proses Peminjaman</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
                     </div>
                 </div>
             </main>
@@ -324,12 +262,17 @@
 </script>
 
 <script>
-    function pilih(x){
+        function pilih(x){
+        var id = $(x).data("id");
         var nama = $(x).data("nama"); 
-        var jumlah = $(x).data("jumlah"); 
+        var jumlah = $("#barang_"+id+" input.jumlah_pinjam").val(); 
         
-        $("#nama_barang").val(nama);
+        $('tr.listpinjam').removeClass('listpinjam');                       
+        $('#barangpinjam').append('<tr class="listpinjam"><td class="nama_barang" name="nama_barang[]"></td><td class="jumlah" name="jumlah[]"></td></tr>');
+        $(".listpinjam .nama_barang").html(nama);
+        $(".listpinjam .jumlah").html(jumlah);
+        /* alert(id+nama+jumlah); */
+    };
 
-        $("#jumlah").val(jumlah);
-    }
+    
 </script>
