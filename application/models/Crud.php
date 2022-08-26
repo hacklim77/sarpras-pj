@@ -2,9 +2,9 @@
 
     class Crud extends CI_Model{
 
-        public function save()
+        public function add($data,$table)
         {
-            
+            $this->db->insert($table,$data);
         }
 
         public function edit()
@@ -17,4 +17,8 @@
             
         }
 
+        public function read($table,$where)
+        {
+            return $this->db->get_where($table,$where);
+        }
     }

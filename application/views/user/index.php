@@ -17,46 +17,8 @@
                       <img alt="" src="assets/logo.png" style="width: 65px; padding: 10px; display: inline-block;">
                       <h4 style="display: inline-block; margin-top: 5px;">STIKES NASIONAL</h4>
                   </a>
-                 <!--  <div class="form-inline">
-                        
-                        <li class="nav-item" style="list-style: none;">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item" style="list-style: none;">
-                            <a class="nav-link" href="#">Features</a>
-                        </li>
-                        <li class="nav-item" style="list-style: none;">
-                            <a class="nav-link" href="#">Pricing</a>
-                        </li>
-                        <li class="nav-item" style="list-style: none;">
-                            <a class="nav-link" href="#">Disabled</a>
-                        </li>
-                        
-                  </div> -->
-                 
                 </nav>    
             </div>
-            <!-- <div class="header navbar-lg" style="width: 100%;" >
-                <div class="header-container text-left">
-                    <nav class="navbar navbar-expand-sm bg-light">
-                        <div style="display: flex;  align-items: center;">
-                            <img alt="" src="<?= base_url('assets/logo.png') ?>" style="width: 65px; padding: 10px; display: inline-block;">    
-                            <h4 style="display: inline-block; margin-top: 5px;">STIKES NASIONAL</h4>                          
-                        </div>
-                        <ul class="navbar-nav justify-content-end">
-                            <li class="nav-item">
-                            <a class="nav-link" href="<?php base_url('') ?>">Link 1</a>
-                            </li>
-                            <li class="nav-item">
-                            <a class="nav-link" href="#">Link 2</a>
-                            </li>
-                            <li class="nav-item">
-                            <a class="nav-link" href="#">Link 3</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div> -->
             
             <main class="main-content bgc-grey-100">
                 <div id="mainContent">
@@ -89,29 +51,30 @@
                                         <h3>Form Peminjaman</h3>
                                     </div>    
                                     <div class="card-body">
-                                        <form>
+                                        <form action="<?= base_url('peminjaman/pinjam') ?>" method="post">
                                             <div class="form-row">
+                                                <input type="hidden" name="no_keluar" id="no_keluar">
                                                 <div class="form-group col-md-6">
-                                                <label for="inputEmail4">Nama Peminjam</label>
-                                                <input type="email" class="form-control" id="inputEmail4">
+                                                <label>Nama Peminjam</label>
+                                                <input type="text" class="form-control" name="nama_peminjam" id="nama_peminjam">
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                <label for="inputPassword4">No Handphone</label>
-                                                <input type="password" class="form-control" id="inputPassword4">
+                                                <label>No Handphone</label>
+                                                <input type="text" class="form-control" id="nohp" name="nohp">
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
-                                                    <label for="inputAddress">Tanggal Pinjam</label>
-                                                    <input type="date" class="form-control" id="inputAddress" value="<?= date('Y-m-d',strtotime('+1 days')) ?>">
+                                                    <label>Tanggal Pinjam</label>
+                                                    <input type="date" class="form-control" id="tgl_keluar" name="tgl_keluar" value="<?= date('Y-m-d',strtotime('+1 days')) ?>">
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label>Lama Pinjam</label>
                                                     <div class="input-group">
-                                                                <input name="lamapinjam" type="number" class="form-control" value="0" min="0">
-                                                                <div class="input-group-addon bgc-white">
-                                                                    hari
-                                                                </div>
+                                                        <input name="lamapinjam" id="lamapinjam" type="number" class="form-control" value="0" min="0">
+                                                            <div class="input-group-addon bgc-white">
+                                                            hari
+                                                            </div>
                                                     </div>
                                                     
                                                 </div>
@@ -121,6 +84,7 @@
                                                     <tr>
                                                         <th>Barang yang dipinjam</th>
                                                         <th>Jumlah</th>
+                                                        <th></th>
                                                     </tr>
                                                     <tbody id="barangpinjam">
                                                         
@@ -137,6 +101,7 @@
                                                 <label class="fw-500">Keterangan Peminjaman</label>
                                                 <textarea name="keterangan" class="form-control" rows="5"></textarea>
                                             </div>
+                                            <input type="hidden" name="getbarang" id="getbarang">
                                             <button type="submit" class="btn btn-primary">Pinjam</button>
                                         </form>
                                     </div>
@@ -176,27 +141,7 @@
         const last = document.querySelector('.demo-last');
 
         function updateInfo() {
-            // if (this.today) {
-            //     today.innerHTML = '';
-            //     var li = document.createElement('li');
-            //     li.innerHTML = this.today;
-            //     today.appendChild(li);
-            // }
-
-            // if (this.lastSelectedDay) {
-
-                // picked.innerHTML = '';
-                // for (days of this.selectedDays) {
-                //     var li = document.createElement('li');
-                //     li.innerHTML = days;
-                //     picked.appendChild(li);
-                // }
-
-                // last.innerHTML = '';
-                // var li = document.createElement('li');
-                // li.innerHTML = this.lastSelectedDay;
-                // last.appendChild(li);
-            // }
+            
             if (this.lastSelectedDay) {
                 //('.infoarea').load("");                       
                 //$('div.infoarea').load('cek_ketersediaan.php?tanggal='+this.lastSelectedDay);                       
@@ -226,27 +171,10 @@
     </script>
     <script type="text/javascript">
         $( document ).ready(function() {
-            $('.infoarea').load('<?= base_url('peminjaman/getcek') ?>');                       
-            /* $('.infoarea').load('cek_ketersediaan.php'); */                       
+            $('.infoarea').load('<?= base_url('peminjaman/listbarang') ?>');                     
         });
     </script>
     <script type="text/javascript">
-    $('.btn-pesan').click(function(){
-        // var unit     = $(this).data('unit');
-        var id       = $(this).data('id');
-        // var tanggal  = $(this).data('tanggal');
-        var stock    = $(this).data('stock');
-        // alert(unit+" "+id+" "+tanggal+" "+stock);
-        // $("#calendar-edit input[name='unit']").val(unit);
-        // $("#calendar-edit input[name='barang']").val(id);
-        // $("#calendar-edit input[name='jumlah']").attr({"max" : stock});
-        // $("#calendar-edit input[name='tgl_keluar']").val(tanggal);
-        $(this).hide();                       
-        $('div.add_barang').load('add_pinjam_barang.php?id_barang='+id+'&stock='+stock);                       
-        $('div.add_barang').removeClass('add_barang');                       
-        $('div.list_barang').append('<div class="add_barang"></div>');                       
-
-    });
     
     $("#calendar-edit input[name='jumlah']").change(function(){
         var a = $(this).val();
@@ -266,13 +194,30 @@
         var id = $(x).data("id");
         var nama = $(x).data("nama"); 
         var jumlah = $("#barang_"+id+" input.jumlah_pinjam").val(); 
-        
+        var getbaranglama = $('#getbarang').val();
+        var tambahbarang = id+':'+jumlah;
+
+        if (getbaranglama == '') {
+            var barangbaru = tambahbarang;
+        } else{
+            var barangbaru = getbaranglama+"/"+tambahbarang;
+        }
+
+        $("#getbarang").val(barangbaru);
+
         $('tr.listpinjam').removeClass('listpinjam');                       
         $('#barangpinjam').append('<tr class="listpinjam"><td class="nama_barang" name="nama_barang[]"></td><td class="jumlah" name="jumlah[]"></td></tr>');
         $(".listpinjam .nama_barang").html(nama);
         $(".listpinjam .jumlah").html(jumlah);
-        /* alert(id+nama+jumlah); */
     };
 
-    
+    /* $('a.hapus').click(function() {
+    $('#listpinjam').remove();
+    return false;
+    }); */
+
+   /*  $(document).on('click', '.btn_remove', function(){  
+           var button_id = $(this).attr("id");   
+           $('.listpinjam'+button_id+'').remove();  
+      }); */
 </script>
