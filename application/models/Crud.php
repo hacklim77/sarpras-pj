@@ -21,4 +21,9 @@
         {
             return $this->db->get_where($table,$where);
         }
+
+        public function updatestok($table,$where)
+        {
+            return $this->db->get_where($table,$where);
+        }
     }

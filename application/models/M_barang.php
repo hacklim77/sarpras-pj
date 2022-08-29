@@ -23,4 +23,8 @@
             return $sql->result_array();
         }
 
+        public function getidbarang()
+        {
+            
+        }
     }

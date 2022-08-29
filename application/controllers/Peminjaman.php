@@ -21,6 +21,7 @@
         public function listbarang()
         {
             $data['barang'] = $this->M_barang->getbarang();
+            //$data['stok'] = $this->M_barang->getidbarang();
             $this->load->view('user/listbarang',$data);
         }
 
@@ -39,10 +40,7 @@
         {
             $data['title'] = 'Peminjaman Sarpras';
 
-            
-
             $nokeluar = "11111";
-
             $nama_peminjam = $this->input->post('nama_peminjam');
             $nohp =  $this->input->post('nohp');
             $tglkeluar = $this->input->post('tgl_keluar');
@@ -84,14 +82,41 @@
             $id_barang_keluar = $lastid;
             
             foreach ($idbrg as $key => $value) {
+
                 $data = array(
                     'id_barang_keluar' => $id_barang_keluar,
                     'id_barang' => $key,
                     'jumlah' => $value
                 );
-               $this->Crud->add($data,'barang_pinjam'); 
-            }
+               $this->Crud->add($data,'barang_pinjam');
 
+               //$stok = $this->db->get_where('barang',['id_barang' => $this->session->userdata('jumlah')])->row_array();
+               
+               //$pj = $this->db->get_where('barang_pinjam',['id_barang' => $this->session->userdata('jumlah')])->row_array();
+               
+               //$sisa = $stok - $pj;
+            }
+            //print($stok);
+
+
+            //print($sisa);
+
+            //$this->db->query("UPDATE barang SET jumlah='$sisa' WHERE id_barang=['id_barang']");
+
+            //return $upt;
+            /* $stok = $this->db->query("SELECT * FROM barang WHERE id_barang='$key'");
+
+            $sisa = $stok - $value;
+
+
+            return $upt;
+            $where = array('id_barang' => $key);
+            $stok = $this->Crud->updatestok($where,'barang'); */
+            
+
+
+            /* $stok = $this->M_barang->getidbarang($data['id_barang']);
+            var_dump($stok); */    
 
             redirect('peminjaman');
         }
