@@ -1,0 +1,6 @@
+//Join tabel untuk barang kembali
+SELECT barang_keluar.no_keluar,barang_keluar.nama_peminjam,barang_keluar.tgl_keluar,barang_keluar.status_kembali,barang.nama_barang,barang_pinjam.jumlah 
+FROM barang_pinjam 
+JOIN barang_keluar ON barang_pinjam.id_barang_keluar=barang_keluar.id_barang_keluar
+JOIN barang ON barang_pinjam.id_barang=barang.id_barang
+WHERE barang_pinjam.id_barang_keluar=44
