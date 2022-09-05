@@ -47,6 +47,10 @@
                                     <ul class="demo-picked"><span>n/a</span></ul>
                                 </div> -->
                                 <div class="card">
+                                <form method="post" action="<?= base_url('peminjaman/listbarang') ?>">
+                                    <input type="date" name="tgl">
+                                    <input type="submit">
+                                </form>
                                     <div class="card-header text-center" style="background-color: purple; color:white">
                                         <h3>Form Peminjaman</h3>
                                     </div>    
@@ -64,9 +68,9 @@
                                                 </div>
                                             </div>
                                             <div class="form-row">
-                                                <div class="form-group col-md-6">
+                                                <div class="form-group col-md-6" >
                                                     <label>Tanggal Pinjam</label>
-                                                    <input type="date" class="form-control" id="tgl_keluar" name="tgl_keluar" value="<?= date('Y-m-d',strtotime('+1 days')) ?>">
+                                                    <input type="text" class="form-control" data-date-format="yyyy-mm-dd" id="datepicker" name="tgl_keluar">
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label>Lama Pinjam</label>
@@ -130,94 +134,55 @@
             </footer>
         </div>
     </div>
+    <script>
+    $( function() {
+        $( "#datepicker" ).datepicker({
+            //beforeShowDay: $.datepicker.noWeekends,
+            dateFormat: 'yy-mm-dd',
+            minDate:1,
+        });
+    });
+    </script>
     <script type="text/javascript" src="<?= base_url('assets/css/priv/vendor.js'); ?>"></script>
     <script type="text/javascript" src="<?= base_url('assets/css/priv/bundle.js'); ?>"></script>
-    <script src="<?= base_url('dist/helloweek.min.js'); ?>" type="text/javascript"></script>
-    <script>
-        const prev = document.querySelector('.demo-prev');
-        const next = document.querySelector('.demo-next');
-        const today = document.querySelector('.demo-today');
-        const picked = document.querySelector('.demo-picked');
-        const last = document.querySelector('.demo-last');
-
-        function updateInfo() {
-            
-            if (this.lastSelectedDay) {
-                //('.infoarea').load("");                       
-                //$('div.infoarea').load('cek_ketersediaan.php?tanggal='+this.lastSelectedDay);                       
-                $('div.infoarea').load('cek_ketersediaan.php?tanggal='+this.lastSelectedDay);                       
-                // alert (this.lastSelectedDay);
-            }
-        }
-
-        const myCalendar = new HelloWeek({
-            selector: '.hello-week',
-            lang: 'id',
-            format: 'YYYY-MM-DD',
-            monthShort: false,
-            weekShort: false,
-            disablePastDays: true,
-            multiplePick: false,
-            onLoad: updateInfo,
-            onChange: updateInfo,
-            onSelect: updateInfo
-        });
-
-        myCalendar.selectedDays.push('1525556882', '1525643282');
-
-        prev.addEventListener('click', () => myCalendar.prev());
-        next.addEventListener('click', () => myCalendar.next());
-
-    </script>
+    <!-- <script src="<?= base_url('dist/helloweek.min.js'); ?>" type="text/javascript"></script> -->
+    
     <script type="text/javascript">
         $( document ).ready(function() {
-            $('.infoarea').load('<?= base_url('peminjaman/listbarang') ?>');                     
+            $('.infoarea').load('<?= base_url('peminjaman/listbarang')?>'.$tgl);                     
         });
     </script>
-    <script type="text/javascript">
-    
-    $("#calendar-edit input[name='jumlah']").change(function(){
-        var a = $(this).val();
-        var min = $(this).attr('min');
-        var max = $(this).attr('max');
-        if (a < min) {
-            $(this).val(min);
-        }
-        if (a > max) {
-            $(this).val(max);
-        }
-    });
-</script>
 
-<script>
-        function pilih(x){
-        var id = $(x).data("id");
-        var nama = $(x).data("nama"); 
-        var jumlah = $("#barang_"+id+" input.jumlah_pinjam").val(); 
-        var getbaranglama = $('#getbarang').val();
-        var tambahbarang = id+':'+jumlah;
+    <script>
+            function pilih(x){
+            var id = $(x).data("id");
+            var nama = $(x).data("nama"); 
+            var jumlah = $("#barang_"+id+" input.jumlah_pinjam").val(); 
+            var getbaranglama = $('#getbarang').val();
+            var tambahbarang = id+':'+jumlah;
 
-        if (getbaranglama == '') {
-            var barangbaru = tambahbarang;
-        } else{
-            var barangbaru = getbaranglama+"/"+tambahbarang;
-        }
+            if (getbaranglama == '') {
+                var barangbaru = tambahbarang;
+            } else{
+                var barangbaru = getbaranglama+"/"+tambahbarang;
+            }
 
-        $("#getbarang").val(barangbaru);
+            $("#getbarang").val(barangbaru);
 
-        $('tr.listpinjam').removeClass('listpinjam');                       
-        $('#barangpinjam').append('<tr class="listpinjam"><td class="nama_barang" name="nama_barang[]"></td><td class="jumlah" name="jumlah[]"></td></tr>');
-        $(".listpinjam .nama_barang").html(nama);
-        $(".listpinjam .jumlah").html(jumlah);
-    };
+            $('tr.listpinjam').removeClass('listpinjam');                       
+            $('#barangpinjam').append('<tr class="listpinjam"><td class="nama_barang" name="nama_barang[]"></td><td class="jumlah" name="jumlah[]"></td></tr>');
+            $(".listpinjam .nama_barang").html(nama);
+            $(".listpinjam .jumlah").html(jumlah);
+        };
 
-    /* $('a.hapus').click(function() {
-    $('#listpinjam').remove();
-    return false;
-    }); */
+        /* $('a.hapus').click(function() {
+        $('#listpinjam').remove();
+        return false;
+        }); */
 
-   /*  $(document).on('click', '.btn_remove', function(){  
-           var button_id = $(this).attr("id");   
-           $('.listpinjam'+button_id+'').remove();  
-      }); */
-</script>
+    /*  $(document).on('click', '.btn_remove', function(){  
+            var button_id = $(this).attr("id");   
+            $('.listpinjam'+button_id+'').remove();  
+        }); */
+    </script>
+   

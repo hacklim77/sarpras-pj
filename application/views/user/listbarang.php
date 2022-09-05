@@ -1,6 +1,7 @@
 <div class="card">
     <div class="card-header text-center" style="background-color: purple; color:white">
         <h3>List Barang Yang Tersedia</h3>
+        <br><?= $tgl ?>
     </div>
     <div class="scroll-bg">    
         <div class="scroll-div">    
@@ -15,7 +16,7 @@
                             <td width="60%"><div class="input-group mb-3">
                                 <input type="number" class="form-control jumlah_pinjam" min="1" max="<?= $key['jumlah']?>">
                                 <div class="input-group-append ml-3">
-                                    <button class="btn btn-success" data-id="<?= $key['id_barang'] ?>" data-nama="<?= $key['nama_barang']?>" data-jumlah="<?= $key['jumlah']?>" onclick="pilih(this)" type="button">+</button>
+                                    <button class="btn btn-success" data-id="<?= $key['id_barang'] ?>" data-nama="<?= $key['nama_barang']?>" data-jumlah="<?= $key['jumlah']?>" onclick="pilih(this)" type="button">Pinjam</button>
                                 </div>
                                 </div>
                             </td>
