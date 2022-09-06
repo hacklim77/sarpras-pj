@@ -1,10 +1,10 @@
 <div class="card">
     <div class="card-header text-center" style="background-color: purple; color:white">
         <h3>List Barang Yang Tersedia</h3>
-        <br><?= $tgl ?>
+        <h5 id="cektanggal">test</h5>
     </div>
-    <div class="scroll-bg">    
-        <div class="scroll-div">    
+    <div class="scroll-bg">
+        <div class="scroll-div">
             <ul class="list-group list-group-flush">
                 <?php foreach ($barang as $key) :?>
                 <li class="list-group-item" id="barang_<?= $key['id_barang'] ?>">
@@ -28,3 +28,9 @@
         </div>
     </div>
 </div>
+
+<!-- <script type="text/javascript">
+        $(document).ready(function() {
+            $("#cektanggal").html(tgl);
+        });
+    </script> -->

@@ -1,6 +1,9 @@
 <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur tempora, atque cupiditate nesciunt labore consequuntur tempore, unde sit totam ratione omnis corrupti nihil porro quaerat ad. Molestiae accusantium, rerum odio laboriosam exercitationem provident beatae delectus molestias inventore deserunt ex, atque saepe adipisci eveniet consequuntur voluptate suscipit porro deleniti nisi quibusdam?</p> -->
-
+<p id="cektanggal"></p>
 <?php
+
+   /*  $input = $_POST['tgl'];
+    echo $input; */
    /*  $now = date_create('2022-08-19');
     date_add($now, date_interval_create_from_date_string('3 days'));
 
@@ -43,15 +46,15 @@
         } */
     ?>
 
-    
 
-    <div class="card">
+
+    <!-- <div class="card">
         <div class="card-header text-center" style="background-color: purple; color:white">
             <h3>List Barang Yang Tersedia</h3>
         </div>
         <div class="scroll-bg">
         <div class="scroll-div">
-            
+
             <ul class="list-group list-group-flush">
                 <?php foreach ($barang as $key) :?>
                 <li class="list-group-item" id="barang_<?= $key['id_barang'] ?>">
@@ -74,9 +77,8 @@
             </ul>
         </div>
         </div>
-    </div>
-
-    
+    </div> -->
 
 
-                
+
+

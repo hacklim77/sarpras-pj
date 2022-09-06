@@ -9,7 +9,7 @@
             /* $this->db->select('*');
             $this->db->from('barang');
             $this->db->not_like('jumlah', '0');
-            return $this->db->get()->result_array(); */         
+            return $this->db->get()->result_array(); */
         }
 
         public function getnomor()
@@ -26,6 +26,6 @@
 
         public function getidbarang()
         {
-            
+
         }
     }
