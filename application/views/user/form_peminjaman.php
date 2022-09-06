@@ -37,7 +37,7 @@
                     <th>Jumlah</th>
                     <th></th>
                     </tr>
-                                                        <tbody id="barangpinjam">
+                                                         <tbody id="barangpinjam">
                                                             
                                                         </tbody>
                                                     </table>

@@ -43,7 +43,7 @@ $h7        = date('Y-m-d',strtotime("+7 days"));
 
         while ($rcb = $nomor) {
             if ($rcb['id_barang'] == 0) {
-                $b++;
+                 $b++;
                 $cek_barang[$rcb['id_barang']] == array('stock' => $b, 'nama_barang' => $rcb['nama_barang']);
             } else {
                 $b=1;
