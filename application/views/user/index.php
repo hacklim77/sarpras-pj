@@ -112,22 +112,24 @@
                 if (tgl == '') {
                     alert('silahkan pilih tanggal peminjaman dahulu!');
                 } else{
-                    //$("#picktgl").hide();
+                    $("#picktgl").hide();
                     $("#formpeminjaman").load('<?= base_url('peminjaman/form_pinjam')?>');
                     $(".infoarea").load('<?= base_url('peminjaman/listbarang')?>');
-                    /* $("#cektanggal").html(tgl); */
-                    /* $.ajax({
-                        url:'coba.php',
+
+                    $.ajax({
+                        url:'<?= base_url('peminjaman/listbarang') ?>',
                         type:'POST',
                         data:{
                             tgl:tgl
                         },
                         success:function(data){
-                            $("#cektanggal").text(data);
+                            //$("#cektanggal").html("<b>"+tgl+"</b>");
+                            $("#cektanggal").html(tgl),
+                            $("#tgl_pinjam").val(tgl)
                         }
-                    }); */
+                    });
+                    //$("#cektanggal").text(tgl);
                 }
-                $("#cektanggal").html(tgl);
             });
         });
     </script>

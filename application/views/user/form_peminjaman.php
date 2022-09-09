@@ -8,22 +8,22 @@
                 <input type="hidden" name="no_keluar" id="no_keluar">
                     <div class="form-group col-md-6">
                         <label>Nama Peminjam</label>
-                        <input type="text" class="form-control" name="nama_peminjam" id="nama_peminjam">
+                        <input type="text" class="form-control" name="nama_peminjam" id="nama_peminjam" autocomplete="off" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label>No Handphone</label>
-                        <input type="text" class="form-control" id="nohp" name="nohp">
+                        <input type="text" class="form-control" id="nohp" name="nohp" autocomplete="off" required>
                     </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6" >
                     <label>Tanggal Pinjam</label>
-                    <input type="text" class="form-control pinjam" name="tgl_keluar" id="tgl_pinjam" autocomplete="off">
+                    <input type="text" class="form-control pinjam" name="tgl_keluar" id="tgl_pinjam" autocomplete="off" readonly>
                 </div>
                 <div class="form-group col-md-6">
                         <label>Lama Pinjam</label>
                     <div class="input-group">
-                        <input name="lamapinjam" id="lamapinjam" type="number" class="form-control" value="0" min="0">
+                        <input name="lamapinjam" id="lamapinjam" type="number" class="form-control" value="0" min="0" required>
                         <div class="input-group-addon bgc-white">
                         hari
                         </div>
@@ -50,7 +50,7 @@
 
             <div class="form-group">
                 <label class="fw-500">Keterangan Peminjaman</label>
-                <textarea name="keterangan" class="form-control" rows="5"></textarea>
+                <textarea name="keterangan" class="form-control" rows="5" required></textarea>
             </div>
             <input type="hidden" name="getbarang" id="getbarang">
             <button type="submit" class="btn btn-primary">Pinjam</button>

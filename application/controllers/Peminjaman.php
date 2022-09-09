@@ -7,16 +7,14 @@
             parent::__construct();
             $this->load->model('M_barang');
             $this->load->model('Crud');
-
             $this->load->library('session');
+            $this->load->helper('url');
         }
 
         public function index()
         {
             $data['title'] = 'Peminjaman Sarpras';
             $data['barang'] = $this->M_barang->getbarang();
-            $data['nomor'] = $this->M_barang->getnomor();
-            $data['pinjam'] = $this->M_barang->getbarangpinjam();
 
             //$data['tgl'] = $this->input->post('tgl');
 
@@ -25,10 +23,76 @@
 
         public function listbarang()
         {
-            $data['barang'] = $this->M_barang->getbarang();
-            //$data['stok'] = $this->M_barang->getidbarang();
             $data['tgl'] = $this->input->post('tgl');
+            $data['barang'] = $this->M_barang->getbarang();
+            $data['avail'] = $this->M_barang->getbarangpinjam($data['tgl']);
+            $data['nomor'] = $this->M_barang->getnomor();
+
+            /* $cek = array();
+            $a = 0;
+            $b = 0;
+
+            foreach ($nomor as $key) {
+                if ($key['id_barang'] == $a) {
+                    $b++;
+                    $cek[$key['id_barang']] = array(
+                        'stock' => $b,
+                        'nama_barang' => $key['nama_barang']
+                    );
+                } else {
+                    $b=1;
+                    $a=$key['id_barang'];
+                    $cek[$key['id_barang']] = array(
+                        'stock' => $b,
+                        'nama_barang' => $key['nama_barang']
+                    );
+                }
+            }
+
+            $stok = array();
+            $a= 0;
+            $b= 0;
+
+            foreach ($avail as $key) {
+                if ($tgl >= $avail['tgl_keluar'] && $tgl < $avail['tgl_kembali']) {
+                    if ($key['id_barang'] == $a) {
+                        $b = $key['jumlah'];
+                        $stok[$key['id_barang']] = $stok[$key['id_barang']]+$b;
+                    } else {
+                        $a = $key['id_barang'];
+                        $b = $key['jumlah'];
+                        $stok[$key['id_barang']] = $b;
+                    }
+                }
+            } */
+            /* if ($this->session->userdata('tgl_kembali') >= $tgl) {
+
+            } */
+
+            //$data['stok'] = $this->M_barang->getidbarang();
             $this->load->view('user/listbarang',$data);
+        }
+
+        public function join()
+        {
+            $dt = '2022-09-21';
+            $join = $this->M_barang->getbarangpinjam($dt);
+
+            /* $this->session->set_userdata($join);
+            $kb = $this->session->userdata('tgl_kembali');
+            $jl = $this->session->userdata('jumlah');
+            echo $this->session->userdata('tgl_kembali');
+            echo "<br>".$this->session->userdata('jumlah');
+
+            if ($kb == $dt && $jl >= 0) {
+                echo "<br>tgl sama";
+                echo "<br>lebih dari 0";
+            } else {
+                echo "<br>tgl beda";
+                echo "<br>kosong";
+            } */
+
+            print_r($join);
         }
 
         public function form_pinjam()
