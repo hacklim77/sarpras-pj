@@ -18,3 +18,10 @@ JOIN barang_keluar ON barang_pinjam.id_barang_keluar = barang_keluar.id_barang_k
 WHERE NOT barang_keluar.tgl_keluar='2022-08-30' AND barang_keluar.tgl_kembali='2022-09-01'
 
 SELECT * from barang_pinjam inner join barang_keluar on barang_keluar.id_barang_keluar=barang_pinjam.id_barang_keluar where barang_keluar.status_kembali = '0' and barang_keluar.tgl_kembali > '$tgl' ORDER BY barang_pinjam.id_barang ASC
+
+
+SELECT barang_keluar.no_keluar,barang_keluar.nama_peminjam,barang_keluar.tgl_keluar,barang_keluar.status_kembali,barang.nama_barang,barang_pinjam.jumlah
+FROM barang_pinjam
+JOIN barang_keluar ON barang_pinjam.id_barang_keluar=barang_keluar.id_barang_keluar
+JOIN barang ON barang_pinjam.id_barang=barang.id_barang
+WHERE NOT barang_keluar.tgl_keluar='2022-09-02' AND barang_keluar.tgl_kembali='2022-09-03'

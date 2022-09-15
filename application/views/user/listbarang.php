@@ -1,5 +1,5 @@
 <?php
-//error_reporting(0);
+    /* error_reporting(0);
     $cek = array();
     $a = 0;
     $b = 0;
@@ -36,7 +36,7 @@
                 $stok[$key['id_barang']] = $b;
             }
         }
-    }
+    } */
 ?>
 <div class="card">
     <div class="card-header text-center" style="background-color: purple; color:white">
@@ -45,34 +45,41 @@
     </div>
     <div class="scroll-bg">
         <div class="scroll-div">
-            <?php foreach ($cek as $key => $value) {
+            <?php /* foreach ($cek as $key => $value) {
                 if ($stok[$key]) {
                     $stokready = $cek[$key]['stock'] - $stok[$key];
                 } else {
                     $stokready = $cek[$key]['stock'];
                 }
-                if ($stokready >= 0) {
+                if ($stokready >= 0) { */
             ?>
             <ul class="list-group list-group-flush">
+                <?php
+                    foreach ($barang as $key) :
+                        /* if ($this->session->$key['id_barang'] == $this->session->$nomor['id_barang']){
+
+                        } */
+                ?>
                 <li class="list-group-item" data-date="" id="barang_<?= $key['id_barang'] ?>">
                     <table class="table">
                         <tr>
-                            <td><?= $cek[$key]['nama_barang'] ?><br>
-                            Stok: <b><?= $stokready ?></b> Unit
+                            <td><?= $key['nama_barang'] ?><br>
+                            Stok: <b><?= $key['jumlah'] ?></b> Unit
                             </td>
                             <td width="60%"><div class="input-group mb-3">
-                                <input type="number" class="form-control jumlah_pinjam" min="1" max="<?= $stokready?>">
+                                <input type="number" class="form-control jumlah_pinjam" min="1" max="<?= $key['jumlah']?>">
                                 <div class="input-group-append ml-3">
-                                    <button class="btn btn-success" data-id="<?= $key['id_barang'] ?>" data-nama="<?= $cek[$key]['nama_barang']?>" data-jumlah="<?= $cek[$key]['stock']?>" onclick="pilih(this)" type="button">Pinjam</button>
+                                    <button class="btn btn-success" data-id="<?= $key['id_barang'] ?>" data-nama="<?= $key['nama_barang']?>" data-jumlah="<?= $key['jumlah'] ?>" onclick="pilih(this)" type="button">Pinjam</button>
                                 </div>
                                 </div>
                             </td>
                         </tr>
                     </table>
                 </li>
+                <?php endforeach?>
             <?php
-                }
-            } ?>
+              /*   }
+            }  */?>
             </ul>
         </div>
     </div>
