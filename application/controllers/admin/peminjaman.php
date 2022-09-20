@@ -1,6 +1,6 @@
 <?php
 
-    class Dashboard extends CI_Controller
+    class Peminjaman extends CI_Controller
     {
         public function __construct()
         {
@@ -13,10 +13,9 @@
 
         public function index()
         {
-            $data['title'] = 'Sarpras Administrator | Dashboard';
-            $data['jml_barang'] = $this->M_barang->countbarang();
-            //$data['barang'] = $this->M_barang->getbarang();
+            $data['title'] = 'Sarpras Administrator | Peminjaman';
+            $data['dt_keluar'] = $this->M_barang->getpinjam();
 
-            $this->admin_temp->load('templates/admin','admin/dashboard/index',$data);
+            $this->admin_temp->load('templates/admin','admin/peminjaman/index',$data);
         }
     }

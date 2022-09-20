@@ -81,17 +81,17 @@
                                 </div>
                                 <!-- /input-group -->
                             </li>
-                            <li>
-                                <a href="index.html" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <li  class="active">
+                                <a href="<?= base_url('admin/dashboard') ?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                             </li>
                             <li>
-                                <a href="index.html"><i class="fa fa-cubes"></i> Data Barang</a>
+                                <a href="<?= base_url('admin/barang') ?>"><i class="fa fa-cubes"></i> Data Barang</a>
                             </li>
                             <li>
-                                <a href="index.html"><i class="fa fa-sign-out"></i> Data Peminjaman</a>
+                                <a href="<?= base_url('admin/peminjaman') ?>"><i class="fa fa-sign-out"></i> Data Peminjaman</a>
                             </li>
                             <li>
-                                <a href="index.html"><i class="fa fa-tasks"></i> Data Barang Rusak</a>
+                                <a href="<?= base_url('admin/pelaporan') ?>"><i class="fa fa-tasks"></i> Data Barang Rusak</a>
                             </li>
                         </ul>
                     </div>
@@ -117,8 +117,20 @@
         <!-- Metis Menu Plugin JavaScript -->
         <script src="<?= base_url('assets/admin/js/metisMenu.min.js')?>"></script>
 
+        <!-- DataTables JavaScript -->
+        <script src="<?= base_url('assets/admin/js/dataTables/jquery.dataTables.min.js')?>"></script>
+        <script src="<?= base_url('assets/admin/js/dataTables/dataTables.bootstrap.min.js')?>"></script>
+
         <!-- Custom Theme JavaScript -->
         <script src="<?= base_url('assets/admin/js/startmin.js')?>"></script>
+
+        <script>
+            $(document).ready(function() {
+                        $('#databarang').DataTable({
+                                responsive: true
+                        });
+                    });
+        </script>
 
     </body>
 </html>

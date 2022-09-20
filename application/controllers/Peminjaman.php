@@ -129,7 +129,7 @@
                $this->Crud->add($data,'barang_pinjam');
             }
 
-            $this->db->query("
+            /* $this->db->query("
                 SET GLOBAL event_scheduler=ON
                 CREATE EVENT [IF NOT EXIST] bookbarang
                 ON SCHEDULE AT >=$tglkeluar
@@ -138,7 +138,7 @@
 
                 DO
                 INSERT INTO barang_pinjam
-            ");
+            "); */
 
             // echo "<script>alert('peminjaman berhasil')</script>";
             redirect('peminjaman');

@@ -12,6 +12,25 @@
             return $this->db->get()->result_array(); */
         }
 
+        public function getallbarang()
+        {
+            $this->db->select('*');
+            $this->db->from('barang');
+            $this->db->join('kategori','kategori.id_kategori = barang.id_kategori');
+            $query = $this->db->get()->result_array();
+            return $query;
+        }
+
+        public function countbarang()
+        {
+            return $this->db->count_all('barang');
+        }
+
+        public function getpinjam()
+        {
+            return $this->db->get('barang_keluar')->result_array();
+        }
+
         public function getnomor()
         {
             $sql = $this->db->query("SELECT * FROM penomoran inner join barang on penomoran.id_barang=barang.id_barang where penomoran.id_lokasi = '1' ORDER BY penomoran.id_barang ASC");
