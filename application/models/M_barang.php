@@ -31,6 +31,11 @@
             return $this->db->get('barang_keluar')->result_array();
         }
 
+        public function getkategori()
+        {
+            return $this->db->get('kategori')->result_array();
+        }
+
         public function getnomor()
         {
             $sql = $this->db->query("SELECT * FROM penomoran inner join barang on penomoran.id_barang=barang.id_barang where penomoran.id_lokasi = '1' ORDER BY penomoran.id_barang ASC");

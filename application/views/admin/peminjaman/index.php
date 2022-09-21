@@ -46,7 +46,7 @@
                                                         ?>
                                                     </td>
                                                     <td align="center">
-                                                        <a class="btn btn-sm btn-primary" href="" id="detailpinjam"><i class="fa fa-link"></i></a>
+                                                        <a class="btn btn-sm btn-primary" href="" id="detailpinjam">Konfirmasi</a>
                                                     </td>
                                                 </tr>
                                                 <?php } ?>

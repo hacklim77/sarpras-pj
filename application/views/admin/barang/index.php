@@ -43,7 +43,7 @@
                                                     <td><?= $key['kondisi'] ?></td>
                                                     <td><?= $key['jumlah'] ?></td>
                                                     <td><?= $key['tgl_pembelian'] ?></td>
-                                                    <td>
+                                                    <td align="center">
                                                         <?php
                                                         if ($key['status'] == 0) {
                                                             echo '<span style="btn btn-sm btn-danger">Stok Tidak Tersedia</span>';

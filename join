@@ -25,3 +25,5 @@ FROM barang_pinjam
 JOIN barang_keluar ON barang_pinjam.id_barang_keluar=barang_keluar.id_barang_keluar
 JOIN barang ON barang_pinjam.id_barang=barang.id_barang
 WHERE NOT barang_keluar.tgl_keluar='2022-09-02' AND barang_keluar.tgl_kembali='2022-09-03'
+
+UPDATE barang_pinjam SET status=1 WHERE id_barang_keluar=61

@@ -7,7 +7,7 @@
             parent::__construct();
             $this->load->model('M_barang');
             $this->load->model('Crud');
-            $this->load->library('session');
+            $this->load->library('session','form_validation');
             $this->load->helper('url');
         }
 
@@ -22,8 +22,36 @@
         public function tambah()
         {
             $data['title'] = 'Sarpras Administrator | Tambah Data Barang';
-            //$data['barang'] = $this->M_barang->getallbarang();
-
+            $data['kategori'] = $this->M_barang->getkategori();
             $this->admin_temp->load('templates/admin','admin/barang/tambah',$data);
+        }
+
+        public function tbproses()
+        {
+            $kode_barang = $this->input->post('kode_barang');
+            $nama_barang = $this->input->post('nama_barang');
+            $nama_kategori = $this->input->post('nama_kategori');
+            $merk = $this->input->post('merk');
+            $kondisi = $this->input->post('kondisi');
+            $jumlah = $this->input->post('jumlah');
+            $tgl_pembelian = $this->input->post('tgl_pembelian');
+            $status = 1;
+
+            $data = array (
+                'kode_barang' => $kode_barang,
+                'nama_barang' => $nama_barang,
+                'id_kategori' => $nama_kategori,
+                'merk' => $merk,
+                'kondisi' => $kondisi,
+                'jumlah' => $jumlah,
+                'tgl_pembelian' => $tgl_pembelian,
+                'status' => $status
+            );
+
+            $this->Crud->add($data,'barang');
+
+            echo "<script>alert('Data Berhasil Ditambahkan')</script>";
+            redirect('admin/barang');
+
         }
     }
