@@ -46,7 +46,7 @@
                                                         ?>
                                                     </td>
                                                     <td align="center">
-                                                        <a class="btn btn-sm btn-primary" href="" id="detailpinjam">Konfirmasi</a>
+                                                        <a class="btn btn-sm btn-primary" href="<?= base_url('admin/peminjaman/detailpinjam/').$key['id_barang_keluar'] ?>" id="detailpinjam">Konfirmasi</a>
                                                     </td>
                                                 </tr>
                                                 <?php } ?>

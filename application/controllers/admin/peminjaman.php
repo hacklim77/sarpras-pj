@@ -15,7 +15,25 @@
         {
             $data['title'] = 'Sarpras Administrator | Peminjaman';
             $data['dt_keluar'] = $this->M_barang->getpinjam();
+            //$data['konfirmasi'] = $this->M_barang->getpinjamid($id);
 
             $this->admin_temp->load('templates/admin','admin/peminjaman/index',$data);
+        }
+
+        public function detailpinjam($id)
+        {
+            $data['title'] = 'Sarpras Administrator | Konfirmasi Peminjaman';
+            $data['konfirmasi'] = $this->M_barang->getpinjamid($id);
+            $this->admin_temp->load('templates/admin','admin/peminjaman/detail',$data);
+        }
+
+        public function konfirmasi()
+        {
+            $konfirm = [
+                'status' => $this->input->post('status')
+            ];
+            $this->db->where('id_barang_keluar',$this->input->post('id_barang_keluar'));
+            $this->db->update('barang_pinjam',$konfirm);
+            redirect('admin/peminjaman');
         }
     }
