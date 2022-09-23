@@ -7,14 +7,19 @@
             $this->db->insert($table,$data);
         }
 
-        public function edit()
+        public function edit($where,$table)
         {
-            
+            return $this->db->get($table,$where);
+        }
+
+        public function update()
+        {
+
         }
 
         public function delete()
         {
-            
+
         }
 
         public function read($table,$where)

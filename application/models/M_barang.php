@@ -21,6 +21,11 @@
             return $query;
         }
 
+        public function getbarangid($id)
+        {
+            return $this->db->get_where('barang', array('id_barang' => $id))->result_array();
+        }
+
         public function brgpinjam()
         {
             return $this->db->get('barang_pinjam')->result_array();
@@ -33,6 +38,9 @@
 
         public function getpinjam()
         {
+            /* $this->db->select('*');
+            $this->db->from('barang_keluar');
+            $this->db->join('barang_pinjam','barang_pinjam.id_barang_keluar = barang_keluar.id_'); */
             return $this->db->get('barang_keluar')->result_array();
         }
 

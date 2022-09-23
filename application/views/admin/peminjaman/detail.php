@@ -11,6 +11,7 @@
                             <div class="panel panel-default">
                                 <!-- /.panel-heading -->
                                 <div class="panel-body">
+                                <?= $this->session->flashdata('alert') ?>
                                 <a class="btn btn-primary" style="float: right;" href=""><i class="fa fa-print"></i> Cetak</a>
                                 <table class="table">
                                     <thead>

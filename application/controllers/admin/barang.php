@@ -26,6 +26,16 @@
             $this->admin_temp->load('templates/admin','admin/barang/tambah',$data);
         }
 
+        public function edit($id)
+        {
+            /* $id = $this->session->userdata('id_barang');
+            $where = array('id_barang' => $id); */
+            $data['title'] = 'Sarpras Administrator | Edit Data Barang';
+            $data['kategori'] = $this->M_barang->getkategori();
+            $data['barang'] = $this->M_barang->getbarangid($id);
+            $this->admin_temp->load('templates/admin','admin/barang/edit',$data);
+        }
+
         public function tbproses()
         {
             $kode_barang = $this->input->post('kode_barang');

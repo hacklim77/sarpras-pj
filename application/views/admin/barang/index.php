@@ -53,7 +53,7 @@
                                                         ?>
                                                     </td>
                                                     <td align="center">
-                                                        <a class="btn btn-sm btn-primary" href=""><i class="fa fa-edit"></i></a>
+                                                        <a class="btn btn-sm btn-primary" href="<?= base_url('admin/barang/edit/'.$key['id_barang']) ?>"><i class="fa fa-edit"></i></a>
                                                         <a class="btn btn-sm btn-danger" href=""><i class="fa fa-trash-o"></i></a>
                                                     </td>
                                                 </tr>
