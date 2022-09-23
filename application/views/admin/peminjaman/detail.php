@@ -51,6 +51,7 @@
                                                     </td>
                                                     <td>
                                                         <select name="status" class="form-control">
+                                                            <option>-- Pilih Status --</option>
                                                             <option value="0">Proses ACC</option>
                                                             <option value="1">ACC Pinjam</option>
                                                             <option value="2">Kembali</option>

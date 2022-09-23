@@ -21,6 +21,11 @@
             return $query;
         }
 
+        public function brgpinjam()
+        {
+            return $this->db->get('barang_pinjam')->result_array();
+        }
+
         public function countbarang()
         {
             return $this->db->count_all('barang');
