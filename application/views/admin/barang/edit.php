@@ -19,7 +19,7 @@
                                 </div>
                                 <div class="panel-body">
                                 <?php foreach ($barang as $key) {?>
-                                <form method="POST" action="<?= base_url('admin/barang/uptproses') ?>">
+                                <form method="POST" action="<?= base_url('admin/barang/update') ?>">
                                                 <input type="hidden" name="id_barang" value="<?= $key['id_barang'] ?>">
                                                 <div class="form-group">
                                                     <label>Kode Barang</label>
@@ -47,9 +47,9 @@
                                                 <div class="form-group">
                                                     <label>Kondisi</label>
                                                         <label class="checkbox-inline">
-                                                        <input type="radio" name="kondisi" value="baik" <?php if ($key['kondisi'] == 'baik') echo "checked"; ?>>
+                                                        <input type="radio" name="kondisi" value="Baik" <?php if ($key['kondisi'] == 'Baik') echo "checked"; ?>>
                                                         <label>Baik</label>
-                                                        <input type="radio" name="kondisi" value="rusak" <?php if ($key['kondisi'] == 'rusak') echo "checked"; ?>>
+                                                        <input type="radio" name="kondisi" value="Rusak" <?php if ($key['kondisi'] == 'Rusak') echo "checked"; ?>>
                                                         <label>Rusak</label>
                                                     </label>
                                                     <!-- <label class="checkbox-inline">
@@ -64,7 +64,7 @@
                                                     <label>Tanggal Beli</label>
                                                     <input class="form-control" type="date" name="tgl_pembelian" value="<?= $key['tgl_pembelian'] ?>">
                                                 </div>
-                                                <input class="btn btn-primary" type="submit" value="Tambah Data">
+                                                <input class="btn btn-primary" type="submit" value="Update Data">
                                 </form>
                                 <?php } ?>
                                 </div>

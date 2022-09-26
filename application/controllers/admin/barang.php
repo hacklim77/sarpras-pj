@@ -36,6 +36,38 @@
             $this->admin_temp->load('templates/admin','admin/barang/edit',$data);
         }
 
+        public function update()
+        {
+            $id = $this->input->post('id_barang');
+            $kode_barang = $this->input->post('kode_barang');
+            $nama_barang = $this->input->post('nama_barang');
+            $nama_kategori = $this->input->post('nama_kategori');
+            $merk = $this->input->post('merk');
+            $kondisi = $this->input->post('kondisi');
+            $jumlah = $this->input->post('jumlah');
+            $tgl_pembelian = $this->input->post('tgl_pembelian');
+            $status = 1;
+
+            $data = array (
+                'kode_barang' => $kode_barang,
+                'nama_barang' => $nama_barang,
+                'id_kategori' => $nama_kategori,
+                'merk' => $merk,
+                'kondisi' => $kondisi,
+                'jumlah' => $jumlah,
+                'tgl_pembelian' => $tgl_pembelian,
+                'status' => $status
+            );
+
+            $where = array(
+                'id_barang' => $id
+            );
+
+            $this->Crud->update($where,$data,'barang');
+            redirect('admin/barang');
+
+        }
+
         public function tbproses()
         {
             $kode_barang = $this->input->post('kode_barang');

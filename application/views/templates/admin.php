@@ -93,6 +93,12 @@
                             <li>
                                 <a href="<?= base_url('admin/pelaporan') ?>"><i class="fa fa-tasks"></i> Data Barang Rusak</a>
                             </li>
+                            <li>
+                                <a href="<?= base_url('admin/pelaporan') ?>"><i class="fa fa-tasks"></i> Laporan Peminjaman</a>
+                            </li>
+                            <li>
+                                <a href="<?= base_url('admin/manageadmin') ?>"><i class="fa fa-tasks"></i> Manage Admin</a>
+                            </li>
                         </ul>
                     </div>
                 </div>

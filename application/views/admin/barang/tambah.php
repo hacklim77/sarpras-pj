@@ -43,9 +43,9 @@
                                                 <div class="form-group">
                                                     <label>Kondisi</label>
                                                         <label class="checkbox-inline">
-                                                        <input type="radio" name="kondisi" value="baik">
+                                                        <input type="radio" name="kondisi" value="Baik">
                                                         <label>Baik</label>
-                                                        <input type="radio" name="kondisi" value="rusak">
+                                                        <input type="radio" name="kondisi" value="Rusak">
                                                         <label>Rusak</label>
                                                     </label>
                                                     <!-- <label class="checkbox-inline">

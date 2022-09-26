@@ -45,8 +45,8 @@
                                                     <td><?= $key['tgl_pembelian'] ?></td>
                                                     <td align="center">
                                                         <?php
-                                                        if ($key['status'] == 0) {
-                                                            echo '<span style="btn btn-sm btn-danger">Stok Tidak Tersedia</span>';
+                                                        if ($key['jumlah'] == 0) {
+                                                            echo '<span class="btn btn-sm btn-danger">Stok Tidak Tersedia</span>';
                                                         } else{
                                                             echo '<span class="btn btn-sm btn-success">Stok Tersedia</span>';
                                                         }
