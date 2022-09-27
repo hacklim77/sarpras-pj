@@ -40,21 +40,25 @@
                             <h3 class="panel-title text-center" style="margin-top: 3px;">Sarana dan Prasarana || STIKES Nasional</h3>
                         </div>
                         <div class="panel-body">
-                            <form role="form" method="POST" action="<?= base_url('admin/login/auth') ?>">
+                            <?= $this->session->flashdata('message') ?>
+                            <form role="form" method="POST" action="<?= base_url('admin/login') ?>">
                                 <fieldset>
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="Username" name="username" type="text" required autocomplete="off">
+                                        <input class="form-control" placeholder="Username" name="username" type="text" autocomplete="off">
+                                        <small><?= form_error('username','<div class="text-danger">','</div>'); ?></small>
                                     </div>
                                     <div class="form-group">
                                         <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                        <small><?= form_error('password','<div class="text-danger">','</div>'); ?></small>
                                     </div>
-                                    <div class="checkbox">
+                                    <!-- <div class="checkbox">
                                         <label>
                                             <input name="remember" type="checkbox" value="Remember Me">Remember Me
                                         </label>
-                                    </div>
+                                    </div> -->
                                     <!-- Change this to a button or input when using this as a form -->
-                                    <a href="#" style="float: right;" class="btn btn-primary">Login</a>
+                                    <input style="float: right;" class="btn btn-primary" type="submit" value="Login">
+                                    <!-- <a href="#" >Login</a> -->
                                 </fieldset>
                             </form>
                         </div>

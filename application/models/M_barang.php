@@ -74,5 +74,14 @@
             return $q->result_array();
         }
 
+        public function getmonth($pilih)
+        {
+            $k = $this->db->query("
+                SELECT * FROM barang_keluar
+                WHERE CONCAT (YEAR(tgl_keluar),'-',MONTH(tgl_keluar)) = '$pilih'
+            ");
+
+            return $k->result_array();
+        }
 
     }

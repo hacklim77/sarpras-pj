@@ -60,7 +60,7 @@
                             <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                             </li>
                             <li class="divider"></li>
-                            <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            <li><a href="<?= base_url('admin/login/logout') ?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                             </li>
                         </ul>
                     </li>
@@ -81,7 +81,7 @@
                                 </div>
                                 <!-- /input-group -->
                             </li>
-                            <li  class="active">
+                            <li class="active">
                                 <a href="<?= base_url('admin/dashboard') ?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                             </li>
                             <li>
@@ -94,7 +94,7 @@
                                 <a href="<?= base_url('admin/pelaporan') ?>"><i class="fa fa-tasks"></i> Data Barang Rusak</a>
                             </li>
                             <li>
-                                <a href="<?= base_url('admin/pelaporan') ?>"><i class="fa fa-tasks"></i> Laporan Peminjaman</a>
+                                <a href="<?= base_url('admin/laporan') ?>"><i class="fa fa-tasks"></i> Laporan Peminjaman</a>
                             </li>
                             <li>
                                 <a href="<?= base_url('admin/manageadmin') ?>"><i class="fa fa-tasks"></i> Manage Admin</a>

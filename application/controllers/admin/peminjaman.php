@@ -38,7 +38,7 @@
             $this->db->where('id_barang_keluar',$this->input->post('id_barang_keluar'));
             $this->db->update('barang_pinjam');
 
-           /*  $this->session->set_flashdata('alert','<div class="alert alert-success" role="alert">
+            /*  $this->session->set_flashdata('alert','<div class="alert alert-success" role="alert">
             Status Peminjaman sudah diperbarui!
             </div>'); */
             //redirect('admin/peminjaman/detailpinjam/'.$this->uri->segment(4));
