@@ -40,6 +40,7 @@
         {
             $id = $this->input->post('id_barang');
             $kode_barang = $this->input->post('kode_barang');
+            // $noinvent = $this->input->post('noinvent');
             $nama_barang = $this->input->post('nama_barang');
             $nama_kategori = $this->input->post('nama_kategori');
             $merk = $this->input->post('merk');
@@ -50,6 +51,7 @@
 
             $data = array (
                 'kode_barang' => $kode_barang,
+                // 'noinvent' => $noinvent,
                 'nama_barang' => $nama_barang,
                 'id_kategori' => $nama_kategori,
                 'merk' => $merk,
@@ -71,6 +73,7 @@
         public function tbproses()
         {
             $kode_barang = $this->input->post('kode_barang');
+            // $noinvent = $this->input->post('noinvent');
             $nama_barang = $this->input->post('nama_barang');
             $nama_kategori = $this->input->post('nama_kategori');
             $merk = $this->input->post('merk');
@@ -81,6 +84,7 @@
 
             $data = array (
                 'kode_barang' => $kode_barang,
+                // 'noinvent' => $noinvent,
                 'nama_barang' => $nama_barang,
                 'id_kategori' => $nama_kategori,
                 'merk' => $merk,

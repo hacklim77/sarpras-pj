@@ -25,6 +25,10 @@
                                                     <label>Kode Barang</label>
                                                     <input class="form-control" type="text" name="kode_barang" value="<?= $key['kode_barang'] ?>" required>
                                                 </div>
+                                                <!-- <div class="form-group">
+                                                    <label>Nomor Invent</label>
+                                                    <input class="form-control" type="text" name="noinvent" value="<?= $key['noinvent'] ?>" required>
+                                                </div> -->
                                                 <div class="form-group">
                                                     <label>Nama Barang</label>
                                                     <input class="form-control" type="text" name="nama_barang" value="<?= $key['nama_barang'] ?>">

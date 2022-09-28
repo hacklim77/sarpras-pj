@@ -13,11 +13,10 @@
 
         public function index()
         {
-            $pilih = $this->input->post('pilih');
+            $bulan = $this->input->post('bulan');
+            $tahun = $this->input->post('tahun');
             $data['title'] = 'Sarpras Administrator | Laporan';
-            $data['dt_keluar'] = $this->M_barang->getmonth($pilih);
-            //$data['konfirmasi'] = $this->M_barang->getpinjamid($id);
-            //where CONCAT(YEAR(date),'-',MONTH(date)) = '2017-12'
+            $data['dt_keluar'] = $this->M_barang->getmonth($bulan,$tahun);
 
             $this->admin_temp->load('templates/admin','admin/laporan/index',$data);
         }

@@ -64,7 +64,7 @@
         public function getpinjamid($id)
         {
             $q = $this->db->query("
-                SELECT barang_keluar.no_keluar,barang_pinjam.id_barang_keluar, barang_keluar.nama_peminjam,barang_keluar.tgl_keluar,barang_keluar.tgl_kembali,barang_keluar.status_kembali,barang.nama_barang,barang_pinjam.jumlah,barang_pinjam.status
+                SELECT barang_keluar.no_keluar,barang_pinjam.id_barang_keluar, barang_keluar.nama_peminjam,barang_keluar.tgl_keluar,barang_keluar.tgl_kembali,barang_keluar.status_kembali,barang.nama_barang,barang_pinjam.jumlah,barang_pinjam.status,barang_pinjam.penomoran
                 FROM barang_pinjam
                 JOIN barang_keluar ON barang_pinjam.id_barang_keluar=barang_keluar.id_barang_keluar
                 JOIN barang ON barang_pinjam.id_barang=barang.id_barang
@@ -74,14 +74,26 @@
             return $q->result_array();
         }
 
-        public function getmonth($pilih)
+        public function getpj($id)
+        {
+            $q = $this->db->query("
+            SELECT DISTINCT barang_keluar.no_keluar,barang_keluar.nama_peminjam FROM barang_pinjam
+            JOIN barang_keluar ON barang_pinjam.id_barang_keluar = barang_keluar.id_barang_keluar
+            WHERE barang_pinjam.id_barang_keluar = ".$id."
+            ");
+
+            return $q->result_array();
+        }
+
+        public function getmonth($bulan,$tahun)
         {
             $k = $this->db->query("
                 SELECT * FROM barang_keluar
-                WHERE CONCAT (YEAR(tgl_keluar),'-',MONTH(tgl_keluar)) = '$pilih'
+                WHERE YEAR(tgl_keluar) = '$tahun' AND MONTH(tgl_keluar) = '$bulan'
             ");
 
             return $k->result_array();
         }
+
 
     }

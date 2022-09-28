@@ -12,7 +12,7 @@
                                 <!-- /.panel-heading -->
                                 <div class="panel-body">
                                     <div class="table-responsive">
-                                        <table class="table table-striped table-bordered table-hover" id="databarang">
+                                        <table class="table table-bordered table-hover" id="databarang">
                                             <thead>
                                                 <tr>
                                                     <th>No</th>
@@ -22,7 +22,7 @@
                                                     <th>Tanggal Pinjam</th>
                                                     <th>Tanggal Kembali</th>
                                                     <th>Keterangan</th>
-                                                    <th>Status Kembali</th>
+                                                    <!-- <th>Status Kembali</th> -->
                                                     <th></th>
                                                 </tr>
                                             </thead>
@@ -36,7 +36,7 @@
                                                     <td><?= $key['tgl_keluar'] ?></td>
                                                     <td><?= $key['tgl_kembali'] ?></td>
                                                     <td><?= $key['keterangan'] ?></td>
-                                                    <td>
+                                                    <!-- <td>
                                                         <?php
                                                         if ($key['status_kembali'] == 0) {
                                                             echo '<span class="btn btn-sm btn-danger">Belum Kembali</span>';
@@ -44,7 +44,7 @@
                                                             echo '<span class="btn btn-sm btn-success">Sudah Kembali</span>';
                                                         }
                                                         ?>
-                                                    </td>
+                                                    </td> -->
                                                     <td align="center">
                                                         <a class="btn btn-sm btn-primary" href="<?= base_url('admin/peminjaman/detailpinjam/').$key['id_barang_keluar'] ?>" id="detailpinjam">Konfirmasi</a>
                                                     </td>
