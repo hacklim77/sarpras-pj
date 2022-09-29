@@ -46,6 +46,7 @@
                                         <?php $no=1; foreach ($konfirmasi as $key) {?>
                                         <form method="POST" action="<?= base_url('admin/peminjaman/konfirmasi')?>">
                                                 <input type="hidden" name="id_barang_keluar" value="<?= $key['id_barang_keluar'] ?>">
+                                                <input type="hidden" name="id_barang" value="<?= $key['id_barang'] ?>">
                                                 <tr>
                                                     <td><?= $no++ ?></td>
                                                 <!--  <td><?= $key['nama_peminjam'] ?></td>

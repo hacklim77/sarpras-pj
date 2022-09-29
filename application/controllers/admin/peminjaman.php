@@ -33,21 +33,53 @@
 
             $status = $this->input->post('status');
             $penomoran = $this->input->post('penomoran');
-            /* $konfirm = [
-                'status' => $this->input->post('status')
-            ]; */
+            $id_barang = $this->input->post('id_barang');
+            $id_barang_keluar = $this->input->post('id_barang_keluar');
 
-            $this->db->set('status',$status);
+            /* $data = array(
+                'id_barang_keluar' => $id_barang_keluar,
+                'id_barang' => $id_barang
+            ); */
+
+            /* $data = array(
+                array(
+                    // 'id_barang_keluar' => $id_barang_keluar,
+                    'id_barang' => $id_barang,
+                    'status' => $status,
+                    'penomoran' => $penomoran
+                ),
+                array(
+                    // 'id_barang_keluar' => $id_barang_keluar,
+                    'id_barang' => $id_barang,
+                    'status' => $status,
+                    'penomoran' => $penomoran
+                )
+            );
+
+            $q = $this->db->update_batch('barang_pinjam', $data, 'id_barang');
+            var_dump($q); */
+
+            $q = $this->db->query("
+                UPDATE barang_pinjam
+                SET penomoran = '$penomoran',
+                    status = $status
+                WHERE id_barang = $id_barang AND
+                    id_barang_keluar = $id_barang_keluar;
+            ");
+
+            var_dump($q);
+
+            /*  $this->db->set('status',$status);
             $this->db->set('penomoran',$penomoran);
-            $this->db->where('id_barang_keluar',$this->input->post('id_barang_keluar'));
-            $this->db->update('barang_pinjam');
+            $this->db->where($data);
+            $this->db->update('barang_pinjam'); */
 
-            /*  $this->session->set_flashdata('alert','<div class="alert alert-success" role="alert">
-            Status Peminjaman sudah diperbarui!
-            </div>'); */
-            //redirect('admin/peminjaman/detailpinjam/'.$this->uri->segment(4));
-            echo '<script>alert("Data Peminjaman berhasil diupdate!")</script>';
-            redirect($_SERVER['HTTP_REFERER']);
+            /* $this->db->where('id_barang',$id_barang);
+            $this->db->update('barang_pinjam'); */
+            //$this->db->update_batch('barang_pinjam',$data,'id_barang');
+
+            /* echo '<script>alert("Data Peminjaman berhasil diupdate!")</script>';
+            redirect($_SERVER['HTTP_REFERER']); */
             //redirect('admin/peminjaman/detailpinjam');
         }
 
