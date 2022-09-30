@@ -15,6 +15,7 @@
                 <div class="col-lg-12">
                             <div class="panel panel-default">
                                 <!-- /.panel-heading -->
+                                <?= $this->session->flashdata('Msg') ?>
                                 <div class="panel-body">
                                     <div class="table-responsive">
                                         <table class="table table-bordered table-hover" id="databarang">

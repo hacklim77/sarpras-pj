@@ -66,6 +66,10 @@
             );
 
             $this->Crud->update($where,$data,'barang');
+            $this->session->set_flashdata('Msg','<div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <strong>Data Barang</strong> berhasil diupdate!
+            </div>');
             redirect('admin/barang');
 
         }
@@ -96,7 +100,10 @@
 
             $this->Crud->add($data,'barang');
 
-            echo "<script>alert('Data Berhasil Ditambahkan')</script>";
+            $this->session->set_flashdata('Msg','<div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <strong>Data Barang</strong> berhasil ditambahkan!
+            </div>');
             redirect('admin/barang');
 
         }
