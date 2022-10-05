@@ -64,7 +64,7 @@
         public function getpinjamid($id)
         {
             $q = $this->db->query("
-                SELECT barang_keluar.no_keluar,barang_pinjam.id_barang_keluar, barang_keluar.nama_peminjam,barang_keluar.tgl_keluar,barang_keluar.tgl_kembali,barang_keluar.status_kembali,barang.nama_barang,barang_pinjam.jumlah,barang_pinjam.status,barang_pinjam.penomoran,barang_pinjam.id_barang
+                SELECT barang_keluar.no_keluar,barang_pinjam.id_barang_keluar, barang_keluar.nama_peminjam,barang_keluar.tgl_keluar,barang_keluar.tgl_kembali,barang_keluar.status_kembali,barang.nama_barang,barang_pinjam.jumlah,barang_pinjam.status,barang_pinjam.penomoran,barang_pinjam.id_barang,barang_pinjam.id_barang_pinjam
                 FROM barang_pinjam
                 JOIN barang_keluar ON barang_pinjam.id_barang_keluar=barang_keluar.id_barang_keluar
                 JOIN barang ON barang_pinjam.id_barang=barang.id_barang

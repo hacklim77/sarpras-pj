@@ -38,7 +38,6 @@
                                         <th scope="col">Tanggal Pinjam</th>
                                         <th scope="col">Tanggal Kembali</th>
                                         <th scope="col">Status</th>
-                                        <th scope="col">Nomor Invent</th>
                                         <th scope="col">Konfirmasi</th>
                                         </tr>
                                     </thead>
@@ -46,7 +45,7 @@
                                         <?php $no=1; foreach ($konfirmasi as $key) {?>
                                         <form method="POST" action="<?= base_url('admin/peminjaman/konfirmasi')?>">
                                                 <input type="hidden" name="id_barang_keluar" value="<?= $key['id_barang_keluar'] ?>">
-                                                <input type="hidden" name="id_barang" value="<?= $key['id_barang'] ?>">
+                                                <input type="hidden" name="id_barang[]" value="<?= $key['id_barang'] ?>">
                                                 <tr>
                                                     <td><?= $no++ ?></td>
                                                 <!--  <td><?= $key['nama_peminjam'] ?></td>
@@ -67,16 +66,15 @@
                                                         ?>
                                                     </td>
                                                     <td>
-                                                        <input class="form-control" type="text" name="penomoran" value="<?= $key['penomoran'] ?>">
-                                                    </td>
-                                                    <td>
                                                         <select name="status" class="form-control">
                                                             <option>-- Pilih Status --</option>
                                                             <option value="0">Proses ACC</option>
                                                             <option value="1">ACC Pinjam</option>
                                                             <option value="2">Kembali</option>
                                                         </select>
-                                                </td>
+                                                    </td>
+                                                    <td>
+                                                        <a class="btn btn-success" href="<?= base_url('admin/peminjaman/konfirmasi/'.$key['id_barang_pinjam'])?>"><i class="fa fa-check"></i></a>
                                                 </tr>
                                             <?php } ?>
                                         </tbody>

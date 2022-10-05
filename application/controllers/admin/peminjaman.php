@@ -32,26 +32,12 @@
         {
 
             $status = $this->input->post('status');
-            $penomoran = $this->input->post('penomoran');
-            $id_barang = $this->input->post('id_barang');
             $id_barang_keluar = $this->input->post('id_barang_keluar');
 
-            /* $this->db->set('status',$status);
-            $this->db->set('penomoran',$penomoran);
-            $this->db->where('id_barang',$id_barang);
-            $this->db->having('id_barang_keluar',$id_barang_keluar);
-            $this->db->update('barang_pinjam'); */
+            $this->db->set('status',$status);
+            $this->db->where('id_barang_keluar',$id_barang_keluar);
+            $q = $this->db->update('barang_pinjam');
 
-            /* $this->db->where('id_barang',$id_barang);
-            $this->db->update('barang_pinjam'); */
-            //$this->db->update_batch('barang_pinjam',$data,'id_barang');
-            $q = $this->db->query("
-                UPDATE barang_pinjam SET penomoran='$penomoran',status=$status
-                WHERE id_barang IN (SELECT id_barang FROM barang WHERE id_barang=$id_barang)
-                AND id_barang_keluar=$id_barang_keluar
-            ");
-
-            //echo($q);
             if ($q == false) {
                 echo "gagal";
             } else {
@@ -63,6 +49,27 @@
                 </script>";
 
             }
+            /*
+            $this->db->set('penomoran',$penomoran);
+            $this->db->where('id_barang',$id_barang);
+            $this->db->having('id_barang_keluar',$id_barang_keluar);
+            $this->db->update('barang_pinjam'); */
+
+            /* $this->db->where('id_barang',$id_barang);
+            $this->db->update('barang_pinjam'); */
+            //$this->db->update_batch('barang_pinjam',$data,'id_barang');
+           /*  $q = $this->db->query("
+                UPDATE barang_pinjam SET penomoran='$penomoran',status=$status
+                WHERE id_barang_keluar=$id_barang_keluar AND id_barang=[$d]
+            "); */
+
+            /* $q = $this->db->query("
+                UPDATE barang_pinjam SET penomoran='$penomoran2'
+                WHERE penomoran = '$penomoran'
+            "); */
+
+            //echo($q);
+
 
         }
 
