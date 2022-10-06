@@ -43,9 +43,10 @@
                                     </thead>
                                     <tbody>
                                         <?php $no=1; foreach ($konfirmasi as $key) {?>
-                                        <form method="POST" action="<?= base_url('admin/peminjaman/konfirmasi')?>">
+                                        <!-- <form method="POST" action="<?= base_url('admin/peminjaman/konfirmasi/'.$key['id_barang_pinjam'])?>"> -->
                                                 <input type="hidden" name="id_barang_keluar" value="<?= $key['id_barang_keluar'] ?>">
-                                                <input type="hidden" name="id_barang[]" value="<?= $key['id_barang'] ?>">
+                                                <!-- <input type="hidden" name="id_barang_pinjam" value="<?= $key['id_barang_pinjam'] ?>">
+                                                <input type="hidden" name="id_barang[]" value="<?= $key['id_barang'] ?>"> -->
                                                 <tr>
                                                     <td><?= $no++ ?></td>
                                                 <!--  <td><?= $key['nama_peminjam'] ?></td>
@@ -66,27 +67,91 @@
                                                         ?>
                                                     </td>
                                                     <td>
-                                                        <select name="status" class="form-control">
-                                                            <option>-- Pilih Status --</option>
-                                                            <option value="0">Proses ACC</option>
-                                                            <option value="1">ACC Pinjam</option>
-                                                            <option value="2">Kembali</option>
-                                                        </select>
-                                                    </td>
-                                                    <td>
-                                                        <a class="btn btn-success" href="<?= base_url('admin/peminjaman/konfirmasi/'.$key['id_barang_pinjam'])?>"><i class="fa fa-check"></i></a>
+                                                    <button class="btn btn-success btn-md"  data-toggle="modal" data-target="#editstat<?= $key['id_barang_pinjam'] ?>"><span>Pilih</span></button>
+                                                    <!-- <button class="btn btn-success btn-md"  data-toggle="modal" data-target="#editstat"><span>Pilih</span></button> -->
                                                 </tr>
                                             <?php } ?>
                                         </tbody>
                                     </table>
-                                    <input class="btn btn-success" style="float: right;" type="submit" value="Update Status">
-                                </form>
+                                    <!-- <input class="btn btn-success" style="float: right;" type="submit" value="Update Status"> -->
+
+
                                 </div>
                                 <!-- /.panel-body -->
                             </div>
                             <!-- /.panel -->
                         </div>
 
+                        <div class="card">
+                                    <div class="card-body">
+                                        <!-- Modal -->
+                                        <?php foreach($upstat as $key){ ?>
+                                        <!-- <div class="modal fade" id="editstat<?= $key['id_barang_pinjam'] ?>"> -->
+                                        <div class="modal fade" id="editstat<?= $key->id_barang_pinjam ?>">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Update Status Pinjam</h5>
+                                                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                                                    </div>
+                                                    <div class="modal-body">
+
+                                                        <?= form_open_multipart('admin/peminjaman/konfirmasi') ?>
+                                                        <!-- <input type="text" name="id_barang_pinjam" value="<?= $key['id_barang_pinjam'] ?>"> -->
+                                                        <input type="text" name="id_barang_pinjam" value="<?= $key->id_barang_pinjam ?>">
+                                                        <div class="form-group">
+                                                            <select name="status" class="form-control">
+                                                                    <option>-- Pilih Status --</option>
+                                                                    <option value="0">Proses ACC</option>
+                                                                    <option value="1">ACC Pinjam</option>
+                                                                    <option value="2">Kembali</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <input type="submit" class="btn btn-primary" value="Update" />
+                                                    </div>
+                                                    <?= form_close() ?>
+                                                    <?php } ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                        </div>
+                        <div class="card">
+                                    <div class="card-body">
+                                        <!-- Modal -->
+
+                                        <div class="modal fade" id="editstat">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Update Status Pinjam</h5>
+                                                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="form-group">
+                                                            <select name="status" class="form-control">
+                                                                    <option>-- Pilih Status --</option>
+                                                                    <option value="0">Proses ACC</option>
+                                                                    <option value="1">ACC Pinjam</option>
+                                                                    <option value="2">Kembali</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <input type="submit" class="btn btn-primary" value="Update" />
+                                                    </div>
+                                                    <?= form_close() ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                        </div>
                 </div>
 </div>
 

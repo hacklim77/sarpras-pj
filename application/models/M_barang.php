@@ -74,6 +74,24 @@
             return $q->result_array();
         }
 
+        /* public function updatestat($data)
+        {
+            extract($data);
+            $this->db->where('id_barang_pinjam', $id_barang_pinjam);
+            $this->db->update($table_name, array('status' => $status));
+            return true;
+        }
+ */
+        /* public function getidpj()
+        {
+            return $this->db->get('barang_pinjam')->result_array();
+        } */
+
+        public function getidpj($id)
+        {
+            return $this->db->get_where('barang_pinjam',array('id_barang_pinjam' => $id))->result();
+        }
+
         public function getpj($id)
         {
             $q = $this->db->query("
