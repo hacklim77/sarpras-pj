@@ -67,6 +67,7 @@
                                                         ?>
                                                     </td>
                                                     <td>
+                                                    <a href=""></a>
                                                     <button class="btn btn-success btn-md"  data-toggle="modal" data-target="#editstat<?= $key['id_barang_pinjam'] ?>"><span>Pilih</span></button>
                                                     <!-- <button class="btn btn-success btn-md"  data-toggle="modal" data-target="#editstat"><span>Pilih</span></button> -->
                                                 </tr>
@@ -85,10 +86,10 @@
                         <div class="card">
                                     <div class="card-body">
                                         <!-- Modal -->
-                                        <?php foreach($upstat as $key){ ?>
-                                        <!-- <div class="modal fade" id="editstat<?= $key['id_barang_pinjam'] ?>"> -->
-                                        <div class="modal fade" id="editstat<?= $key->id_barang_pinjam ?>">
-                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <?php foreach($konfirmasi as $key){ ?>
+                                        <div class="modal fade" id="editstat<?= $key['id_barang_pinjam'] ?>">
+                                        <!-- <div class="modal fade" id="editstat<?= $key->id_barang_pinjam ?>"> -->
+                                            <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title">Update Status Pinjam</h5>
@@ -98,40 +99,10 @@
 
                                                         <?= form_open_multipart('admin/peminjaman/konfirmasi') ?>
                                                         <!-- <input type="text" name="id_barang_pinjam" value="<?= $key['id_barang_pinjam'] ?>"> -->
-                                                        <input type="text" name="id_barang_pinjam" value="<?= $key->id_barang_pinjam ?>">
+                                                        <!-- <input type="text" name="id_barang_pinjam" value="<?= $key->id_barang_pinjam ?>"> -->
                                                         <div class="form-group">
-                                                            <select name="status" class="form-control">
-                                                                    <option>-- Pilih Status --</option>
-                                                                    <option value="0">Proses ACC</option>
-                                                                    <option value="1">ACC Pinjam</option>
-                                                                    <option value="2">Kembali</option>
-                                                            </select>
+                                                            <input class="form-control" type="text" name="penomoran" value="<?= $key['penomoran'] ?>" placeholder="Masukkan Nomor Inventaris">
                                                         </div>
-                                                    </div>
-
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                        <input type="submit" class="btn btn-primary" value="Update" />
-                                                    </div>
-                                                    <?= form_close() ?>
-                                                    <?php } ?>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                        </div>
-                        <div class="card">
-                                    <div class="card-body">
-                                        <!-- Modal -->
-
-                                        <div class="modal fade" id="editstat">
-                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title">Update Status Pinjam</h5>
-                                                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-                                                    </div>
-                                                    <div class="modal-body">
                                                         <div class="form-group">
                                                             <select name="status" class="form-control">
                                                                     <option>-- Pilih Status --</option>
@@ -150,6 +121,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <?php } ?>
                                     </div>
                         </div>
                 </div>

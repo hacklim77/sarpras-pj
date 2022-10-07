@@ -157,18 +157,23 @@
             $("#getbarang").val(barangbaru);
 
             $('tr.listpinjam').removeClass('listpinjam');
-            $('#barangpinjam').append('<tr class="listpinjam"><td class="nama_barang" name="nama_barang[]"></td><td class="jumlah" name="jumlah[]"></td></tr>');
+            $('#barangpinjam').append('<tr class="listpinjam"><td class="nama_barang" name="nama_barang[]"></td><td class="jumlah" name="jumlah[]"></td><td><a class="btn btn-sm btn-danger btn_remove" onClick="delthis(this)"><i class="fa fa-trash"></i></td></a></tr>');
+            // $(".listpinjam .btn_remove").remove();
             $(".listpinjam .nama_barang").html(nama);
             $(".listpinjam .jumlah").html(jumlah);
         };
 
-        /* $('a.hapus').click(function() {
-        $('#listpinjam').remove();
-        return false;
+        function delthis(y){
+            $(y).parent().parent().remove();
+        }
+
+        /* $(".btn_remove").click(function() {
+            var id = $(x).data("id");
+            $(".listpinjam").remove(id);
         }); */
 
-    /*  $(document).on('click', '.btn_remove', function(){
-            var button_id = $(this).attr("id");
-            $('.listpinjam'+button_id+'').remove();
+    /* $(document).on('click', '.btn_remove', function(){
+            var id = $(x).data("id");
+            $('.listpinjam'+id+'').remove();
         }); */
     </script>

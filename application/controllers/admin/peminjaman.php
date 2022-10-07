@@ -31,12 +31,14 @@
 
         public function konfirmasi($id)
         {
-            $data['upstat'] = $this->M_barang->getidpj($id);
-
+            $data['konfirmasi'] = $this->M_barang->getpinjamstat($id);
+            // $data['upstat'] = $this->M_barang->getidpj($id);
             $status = $this->input->post('status');
+            $penomoran = $this->input->post('penomoran');
             $id_barang_pinjam = $this->input->post('id_barang_pinjam');
 
             $this->db->set('status',$status);
+            $this->db->set('penomoran',$penomoran);
             $this->db->where('id_barang_pinjam',$id_barang_pinjam);
             $this->db->update('barang_pinjam');
 
