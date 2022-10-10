@@ -13,6 +13,8 @@
 
         public function index()
         {
+            cek_not_login();
+            $data['admin'] = $this->db->get_where('user',['nama_user' => $this->session->userdata('nama_user')])->row_array();
             $data['title'] = 'Sarpras Administrator | Barang';
             $data['barang'] = $this->M_barang->getallbarang();
 
@@ -21,6 +23,8 @@
 
         public function tambah()
         {
+            cek_not_login();
+            $data['admin'] = $this->db->get_where('user',['nama_user' => $this->session->userdata('nama_user')])->row_array();
             $data['title'] = 'Sarpras Administrator | Tambah Data Barang';
             $data['kategori'] = $this->M_barang->getkategori();
             $this->admin_temp->load('templates/admin','admin/barang/tambah',$data);
@@ -30,6 +34,8 @@
         {
             /* $id = $this->session->userdata('id_barang');
             $where = array('id_barang' => $id); */
+            cek_not_login();
+            $data['admin'] = $this->db->get_where('user',['nama_user' => $this->session->userdata('nama_user')])->row_array();
             $data['title'] = 'Sarpras Administrator | Edit Data Barang';
             $data['kategori'] = $this->M_barang->getkategori();
             $data['barang'] = $this->M_barang->getbarangid($id);
@@ -38,6 +44,8 @@
 
         public function update()
         {
+            /* cek_not_login();
+            $data['admin'] = $this->db->get_where('user',['nama_user' => $this->session->userdata('nama_user')])->row_array(); */
             $id = $this->input->post('id_barang');
             $kode_barang = $this->input->post('kode_barang');
             // $noinvent = $this->input->post('noinvent');

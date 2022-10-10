@@ -54,7 +54,7 @@
                 }
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-                    Akun tidak aktif!
+                    Akun tidak ada!
                     </div>');
                 redirect('admin/login');
             }

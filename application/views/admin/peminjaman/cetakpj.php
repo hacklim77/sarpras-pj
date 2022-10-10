@@ -27,7 +27,7 @@
                                 </tr>
                                 </table>
                                 <?php endforeach ?>
-                                <table class="table">
+                                <table class="table table-responsive">
                                     <thead>
                                         <tr>
                                         <th scope="col">No</th>
@@ -37,6 +37,7 @@
                                         <th scope="col">Jumlah</th>
                                         <th scope="col">Tanggal Pinjam</th>
                                         <th scope="col">Tanggal Kembali</th>
+                                        <th scope="col">Nomor Inventaris</th>
                                         <th scope="col">Status</th>
                                         <!-- <th scope="col">Konfirmasi</th> -->
                                         </tr>
@@ -52,14 +53,15 @@
                                                     <td><?= $key['jumlah'] ?></td>
                                                     <td><?= $key['tgl_keluar'] ?></td>
                                                     <td><?= $key['tgl_kembali'] ?></td>
+                                                    <td><?= nl2br($key['penomoran'])?></td>
                                                     <td>
                                                         <?php
                                                             if ($key['status'] == 0) {
-                                                                echo '<span class="btn btn-xs btn-warning">Menunggu Konfirmasi</button>';
+                                                                echo 'Tidak Dipinjamkan';
                                                             } elseif ($key['status'] == 1) {
-                                                                echo '<button class="btn btn-xs btn-primary">ACC dipinjam</button>';
+                                                                echo 'Dipinjamkan';
                                                             } elseif ($key['status'] == 2) {
-                                                                echo '<button class="btn btn-xs btn-primary">Barang Sudah Kembali</button>';
+                                                                echo 'Dikembalikan';
                                                             }
                                                         ?>
                                                     </td>

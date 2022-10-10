@@ -13,6 +13,8 @@
 
         public function index()
         {
+            cek_not_login();
+            $data['admin'] = $this->db->get_where('user',['nama_user' => $this->session->userdata('nama_user')])->row_array();
             $bulan = $this->input->post('bulan');
             $tahun = $this->input->post('tahun');
             $data['title'] = 'Sarpras Administrator | Laporan';

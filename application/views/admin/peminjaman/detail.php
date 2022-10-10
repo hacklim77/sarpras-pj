@@ -37,6 +37,7 @@
                                         <th scope="col">Jumlah</th>
                                         <th scope="col">Tanggal Pinjam</th>
                                         <th scope="col">Tanggal Kembali</th>
+                                        <th scope="col">Nomor Inventaris</th>
                                         <th scope="col">Status</th>
                                         <th scope="col">Konfirmasi</th>
                                         </tr>
@@ -55,6 +56,7 @@
                                                     <td><?= $key['jumlah'] ?></td>
                                                     <td><?= $key['tgl_keluar'] ?></td>
                                                     <td><?= $key['tgl_kembali'] ?></td>
+                                                    <td><?= nl2br($key['penomoran']) ?></td>
                                                     <td>
                                                         <?php
                                                             if ($key['status'] == 0) {
@@ -98,17 +100,24 @@
                                                     <div class="modal-body">
 
                                                         <?= form_open_multipart('admin/peminjaman/konfirmasi') ?>
-                                                        <!-- <input type="text" name="id_barang_pinjam" value="<?= $key['id_barang_pinjam'] ?>"> -->
+                                                        <input type="hidden" name="id_barang_pinjam" value="<?= $key['id_barang_pinjam'] ?>">
                                                         <!-- <input type="text" name="id_barang_pinjam" value="<?= $key->id_barang_pinjam ?>"> -->
-                                                        <div class="form-group">
+                                                        <!-- <div class="form-group">
                                                             <input class="form-control" type="text" name="penomoran" value="<?= $key['penomoran'] ?>" placeholder="Masukkan Nomor Inventaris">
+                                                        </div> -->
+                                                        <div class="form-group">
+                                                            <label>Nomor Inventaris</label>
+                                                            <textarea class="form-control" rows="3" name="penomoran"><?= $key['penomoran'] ?></textarea>
                                                         </div>
                                                         <div class="form-group">
                                                             <select name="status" class="form-control">
                                                                     <option>-- Pilih Status --</option>
-                                                                    <option value="0">Proses ACC</option>
+                                                                    <option <?php if ($key['status'] == 0) { echo 'selected'; }?> value="0">Dibatalkan</option>
+                                                                    <option <?php if ($key['status'] == 1) { echo 'selected'; }?> value="1">Dipinjamkan</option>
+                                                                    <option <?php if ($key['status'] == 2) { echo 'selected'; }?> value="2">Dikembalikan</option>
+                                                                    <!-- <option value="0">Proses ACC</option>
                                                                     <option value="1">ACC Pinjam</option>
-                                                                    <option value="2">Kembali</option>
+                                                                    <option value="2">Kembali</option> -->
                                                             </select>
                                                         </div>
                                                     </div>

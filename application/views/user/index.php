@@ -95,7 +95,7 @@
     <script src="<?= base_url('dist/helloweek.min.js'); ?>" type="text/javascript"></script>
 
     <script>
-    $( function() {
+    $(function() {
         $( "#pilihtgl" ).datepicker({
             //beforeShowDay: $.datepicker.noWeekends,
             dateFormat: 'yy-mm-dd',
@@ -157,7 +157,7 @@
             $("#getbarang").val(barangbaru);
 
             $('tr.listpinjam').removeClass('listpinjam');
-            $('#barangpinjam').append('<tr class="listpinjam"><td class="nama_barang" name="nama_barang[]"></td><td class="jumlah" name="jumlah[]"></td><td><a class="btn btn-sm btn-danger btn_remove" onClick="delthis(this)"><i class="fa fa-trash"></i></td></a></tr>');
+            $('#barangpinjam').append('<tr class="listpinjam"><td class="nama_barang" name="nama_barang[]"></td><td class="jumlah" name="jumlah[]"></td><td><a style="color:white" class="btn btn-sm btn-danger btn-block btn_remove" onClick="delthis(this)"><i class="fa fa-trash"></i> hapus</a></td></tr>');
             // $(".listpinjam .btn_remove").remove();
             $(".listpinjam .nama_barang").html(nama);
             $(".listpinjam .jumlah").html(jumlah);

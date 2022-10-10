@@ -13,6 +13,8 @@
 
         public function index()
         {
+            cek_not_login();
+            $data['admin'] = $this->db->get_where('user',['nama_user' => $this->session->userdata('nama_user')])->row_array();
             $data['title'] = 'Sarpras Administrator | Peminjaman';
             $data['dt_keluar'] = $this->M_barang->getpinjam();
             //$data['konfirmasi'] = $this->M_barang->getpinjamid($id);
@@ -22,15 +24,20 @@
 
         public function detailpinjam($id)
         {
+            cek_not_login();
+            $data['admin'] = $this->db->get_where('user',['nama_user' => $this->session->userdata('nama_user')])->row_array();
             $data['title'] = 'Sarpras Administrator | Konfirmasi Peminjaman';
             $data['pj'] = $this->M_barang->getpj($id);
             $data['konfirmasi'] = $this->M_barang->getpinjamid($id);
             $data['upstat'] = $this->M_barang->getidpj($id);
+            $data['status'] = [0,1,2];
             $this->admin_temp->load('templates/admin','admin/peminjaman/detail',$data);
         }
 
         public function konfirmasi($id)
         {
+            cek_not_login();
+            $data['admin'] = $this->db->get_where('user',['nama_user' => $this->session->userdata('nama_user')])->row_array();
             $data['konfirmasi'] = $this->M_barang->getpinjamstat($id);
             // $data['upstat'] = $this->M_barang->getidpj($id);
             $status = $this->input->post('status');
@@ -60,6 +67,8 @@
 
         public function cetak($id)
         {
+            cek_not_login();
+            $data['admin'] = $this->db->get_where('user',['nama_user' => $this->session->userdata('nama_user')])->row_array();
             $data['title'] = 'Surat Peminjaman Barang';
             $data['pj'] = $this->M_barang->getpj($id);
             $data['konfirmasi'] = $this->M_barang->getpinjamid($id);

@@ -13,7 +13,9 @@
 
         public function index()
         {
+            cek_not_login();
             $data['title'] = 'Sarpras Administrator | Dashboard';
+            $data['admin'] = $this->db->get_where('user',['nama_user' => $this->session->userdata('nama_user')])->row_array();
             $data['jml_barang'] = $this->M_barang->countbarang();
             //$data['barang'] = $this->M_barang->getbarang();
 
