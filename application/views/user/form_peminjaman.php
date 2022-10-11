@@ -38,7 +38,6 @@
                         <th></th>
                     </tr>
                     <tbody id="barangpinjam">
-
                     </tbody>
                 </table>
                     <div class="mb-1">

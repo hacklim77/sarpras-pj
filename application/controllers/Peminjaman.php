@@ -37,20 +37,6 @@
             $dt = '2022-09-21';
             $join = $this->M_barang->getbarangpinjam($dt);
 
-            /* $this->session->set_userdata($join);
-            $kb = $this->session->userdata('tgl_kembali');
-            $jl = $this->session->userdata('jumlah');
-            echo $this->session->userdata('tgl_kembali');
-            echo "<br>".$this->session->userdata('jumlah');
-
-            if ($kb == $dt && $jl >= 0) {
-                echo "<br>tgl sama";
-                echo "<br>lebih dari 0";
-            } else {
-                echo "<br>tgl beda";
-                echo "<br>kosong";
-            } */
-
             print_r($join);
         }
 
@@ -80,7 +66,7 @@
             $nokeluar = $unik.rand(100,300);
             $nama_peminjam = $this->input->post('nama_peminjam');
             $nohp =  $this->input->post('nohp');
-            $tglkeluar = $this->input->post('tgl_keluar');
+            $tglkeluar = $this->input->get('tgl_keluar');
             $lamapinjam = $this->input->post('lamapinjam');
             $hari = $lamapinjam." days";
             $barangpinjam = $this->input->post('getbarang') ;
@@ -126,22 +112,14 @@
                     'id_barang' => $key,
                     'jumlah' => $value
                 );
-               $this->Crud->add($data,'barang_pinjam');
+            $this->Crud->add($data,'barang_pinjam');
             }
 
-            /* $this->db->query("
-                SET GLOBAL event_scheduler=ON
-                CREATE EVENT [IF NOT EXIST] bookbarang
-                ON SCHEDULE AT >=$tglkeluar
-                STARTS $tglkeluar
-                ENDS $tglkeluar + INTERVAL $hari
-
-                DO
-                INSERT INTO barang_pinjam
-            "); */
-
-            // echo "<script>alert('peminjaman berhasil')</script>";
-            redirect('peminjaman');
+            echo "<script type='text/javascript'>
+                    alert('Data Peminjaman berhasil diupdate!');
+                    window.location.href = '".$_SERVER['HTTP_REFERER']."';
+                </script>";
+            //redirect('peminjaman');
         }
 
     }

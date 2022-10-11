@@ -41,7 +41,7 @@
 <div class="card">
     <div class="card-header text-center" style="background-color: purple; color:white">
         <h3>List Barang Yang Tersedia</h3>
-        <h5 id="cektanggal"></h5>
+        <!-- <h5 id="cektanggal"></h5> -->
     </div>
     <div class="scroll-bg">
         <div class="scroll-div">

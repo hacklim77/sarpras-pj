@@ -118,13 +118,13 @@
 
                     $.ajax({
                         url:'<?= base_url('peminjaman/listbarang') ?>',
-                        type:'POST',
+                        type:'GET',
                         data:{
                             tgl:tgl
                         },
                         success:function(data){
                             //$("#cektanggal").html("<b>"+tgl+"</b>");
-                            $("#cektanggal").html(tgl),
+                            //$("#cektanggal").html(tgl),
                             $("#tgl_pinjam").val(tgl)
                         }
                     });
