@@ -1,0 +1,11 @@
+IF new.status = 1
+THEN
+    UPDATE barang c
+    SET c.jumlah=c.jumlah - new.jumlah
+    WHERE c.id_barang=new.id_barang;
+ELSEIF new.status = 2
+THEN
+    UPDATE barang b
+    SET b.jumlah=b.jumlah + new.jumlah
+    WHERE b.id_barang=new.id_barang;
+END IF
