@@ -31,8 +31,6 @@
                                     <thead>
                                         <tr>
                                         <th scope="col">No</th>
-                                        <!-- <th scope="col">Nama</th>
-                                        <th scope="col">No Keluar</th> -->
                                         <th scope="col">Nama Barang</th>
                                         <th scope="col">Jumlah</th>
                                         <th scope="col">Tanggal Pinjam</th>
@@ -65,18 +63,32 @@
                                                             }
                                                         ?>
                                                     </td>
-                                                    <!-- <td>
-                                                        <select name="status" class="form-control">
-                                                            <option>-- Pilih Status --</option>
-                                                            <option value="0">Proses ACC</option>
-                                                            <option value="1">ACC Pinjam</option>
-                                                            <option value="2">Kembali</option>
-                                                        </select>
-                                                </td> -->
                                                 </tr>
                                             <?php endforeach ?>
                                         </tbody>
                                     </table>
+                                    <table class="table-responsive">
+				
+				<tr align="center" style="font-weight: bold;">
+                    <td style="width: 40%;"></td>    
+                    <td style="width: 40%;"></td>    
+                    <td style="width: 20%;"></td>    
+                </tr>
+				<tr align = "center" style="font-weight: bold;">
+					<td></td>
+					<td></td>
+					<td>Petugas,</td>
+				</tr>
+				<tr align = "center">
+					<td><br><br></td>
+					<td><br><br></td>
+				</tr>
+				<tr align = "center" style="font-weight: bold;">
+					<td></td>
+					<td></td>
+					<td><?= $this->session->nama_user ?></td>
+				</tr>
+			  </table>
                                     <!-- <input class="btn btn-success" style="float: right;" type="submit" value="Update Status"> -->
                                 <!-- </form> -->
                                 </div>
@@ -89,5 +101,6 @@
 </div>
 <script>
     window.print();
+    
 </script>
 

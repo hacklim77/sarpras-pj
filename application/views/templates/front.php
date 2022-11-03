@@ -30,9 +30,12 @@
                     <a class="btn btn-info btn-lg" href="#" role="button"><i class="bi-arrow-left-square-fill"></i> Pengembalian</a>
                     <a class="btn btn-dark btn-lg" href="#" role="button"><i class="bi-archive-fill"></i> Barang Rusak</a>
                 </p>
+                <p class="lead text-center mt-5 mb-0 fc-bootstrap3">
+                    Sarpras & IT Stikes Nasional &copy;2022
+                </p>    
             </div>
         </div>  
-    
+        
         </div>
     </div>
 </body>
