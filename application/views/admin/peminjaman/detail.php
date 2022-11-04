@@ -11,7 +11,7 @@
                             <div class="panel panel-default">
                                 <!-- /.panel-heading -->
                                 <div class="panel-body">
-                                <?= $this->session->flashdata('alert') ?>
+                                <?= $this->session->flashdata('Msg') ?>
                                 <a class="btn btn-primary" target="_blank" style="float: right;" href="<?= base_url('admin/peminjaman/cetak/').$this->uri->segment(4) ?>"><i class="fa fa-print"></i> Cetak</a>
                                 <?php foreach ($pj as $k):?>
                                 <table>
@@ -99,7 +99,7 @@
                                                     </div>
                                                     <div class="modal-body">
 
-                                                        <?= form_open_multipart('admin/peminjaman/konfirmasi') ?>
+                                                        <?= form_open_multipart('admin/peminjaman/konfirmasi/'.$key['id_barang_pinjam']) ?>
                                                         <input type="hidden" name="id_barang_pinjam" value="<?= $key['id_barang_pinjam'] ?>">
                                                         <!-- <input type="text" name="id_barang_pinjam" value="<?= $key->id_barang_pinjam ?>"> -->
                                                         <!-- <div class="form-group">

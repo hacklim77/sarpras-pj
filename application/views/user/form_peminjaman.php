@@ -18,7 +18,7 @@
             <div class="form-row">
                 <div class="form-group col-md-6" >
                     <label>Tanggal Pinjam</label>
-                    <input type="text" class="form-control pinjam" name="tgl_keluar" id="tgl_pinjam" autocomplete="off" readonly>
+                    <input type="text" class="form-control pinjam" name="tgl_keluar" id="pilihtgl" autocomplete="off">
                 </div>
                 <div class="form-group col-md-6">
                         <label>Lama Pinjam</label>
@@ -56,4 +56,12 @@
             </form>
     </div>
 </div>
-
+<script>
+    $(function() {
+        $( "#pilihtgl" ).datepicker({
+            //beforeShowDay: $.datepicker.noWeekends,
+            dateFormat: 'yy-mm-dd',
+            minDate:1
+        });
+    });
+    </script>

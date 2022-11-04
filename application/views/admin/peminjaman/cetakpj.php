@@ -68,11 +68,11 @@
                                         </tbody>
                                     </table>
                                     <table class="table-responsive">
-				
+
 				<tr align="center" style="font-weight: bold;">
-                    <td style="width: 40%;"></td>    
-                    <td style="width: 40%;"></td>    
-                    <td style="width: 20%;"></td>    
+                    <td style="width: 40%;"></td>
+                    <td style="width: 40%;"></td>
+                    <td style="width: 20%;"></td>
                 </tr>
 				<tr align = "center" style="font-weight: bold;">
 					<td></td>
@@ -88,7 +88,7 @@
 					<td></td>
 					<td><?= $this->session->nama_user ?></td>
 				</tr>
-			  </table>
+            </table>
                                     <!-- <input class="btn btn-success" style="float: right;" type="submit" value="Update Status"> -->
                                 <!-- </form> -->
                                 </div>
@@ -101,6 +101,5 @@
 </div>
 <script>
     window.print();
-    
 </script>
 

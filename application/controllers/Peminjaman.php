@@ -43,8 +43,7 @@
         public function form_pinjam()
         {
             $data['barang'] = $this->M_barang->getbarang();
-            //$data['stok'] = $this->M_barang->getidbarang();
-            //$data['tgl'] = $this->input->post('tgl');
+            
             $this->load->view('user/form_peminjaman',$data);
         }
 
@@ -66,7 +65,7 @@
             $nokeluar = $unik.rand(100,300);
             $nama_peminjam = $this->input->post('nama_peminjam');
             $nohp =  $this->input->post('nohp');
-            $tglkeluar = $this->input->get('tgl_keluar');
+            $tglkeluar = $this->input->post('tgl_keluar');
             $lamapinjam = $this->input->post('lamapinjam');
             $hari = $lamapinjam." days";
             $barangpinjam = $this->input->post('getbarang') ;
@@ -115,10 +114,17 @@
             $this->Crud->add($data,'barang_pinjam');
             }
 
-            echo "<script type='text/javascript'>
+            $this->session->set_flashdata('Msg','<div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>Permintaan Peminjaman berhasil dikirimkan!</strong>
+                <br><i>Silahkan konfirmasi alat ke ruang Sarpras</i>
+                </div>');
+                redirect('peminjaman');
+
+            /* echo "<script type='text/javascript'>
                     alert('Data Peminjaman berhasil diupdate!');
                     window.location.href = '".$_SERVER['HTTP_REFERER']."';
-                </script>";
+                </script>"; */
             //redirect('peminjaman');
         }
 

@@ -25,46 +25,8 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-8">
-                                <!-- <div id="full-calendar"></div> -->
-                                <!-- <div class="hello-week">
-                                    <div class="hello-week__header">
-                                        <button class="btn demo-prev">◀</button>
-                                        <div class="hello-week__label"></div>
-                                        <button class="btn demo-next">▶</button>
-                                    </div>
-                                    <div class="hello-week__week"></div>
-                                    <div class="hello-week__month"></div>
-                                </div> -->
-                                <div id="picktgl">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="card-header text-center">
-                                                <h4>Tanggal Peminjaman</h4>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="row">
-                                                    <div class="col-md-4">
-
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="input-group mt-3 mb-1">
-                                                            <input type="text" class="form-control mb-2 text-center" id="pilihtgl" placeholder="select date" autocomplete="off">
-                                                        </div>
-                                                        <div class="input-group mb-1">
-                                                            <button type="submit" class="btn btn-primary btn-block " id="pilih">Klik</button>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-
+                            <?= $this->session->flashdata('Msg') ?>
                                 <div id="formpeminjaman">
-
                                 </div>
 
                             </div>
@@ -94,7 +56,7 @@
     <script type="text/javascript" src="<?= base_url('assets/css/priv/bundle.js'); ?>"></script>
     <script src="<?= base_url('dist/helloweek.min.js'); ?>" type="text/javascript"></script>
 
-    <script>
+    <!-- <script>
     $(function() {
         $( "#pilihtgl" ).datepicker({
             //beforeShowDay: $.datepicker.noWeekends,
@@ -102,9 +64,14 @@
             minDate:1
         });
     });
-    </script>
+    </script> -->
 
     <script>
+        $("#formpeminjaman").load('<?= base_url('peminjaman/form_pinjam')?>');
+        $(".infoarea").load('<?= base_url('peminjaman/listbarang')?>');
+    </script>
+
+    <!-- <script>
         $(document).ready(function() {
             $("#pilih").click(function(){
 
@@ -132,7 +99,7 @@
                 }
             });
         });
-    </script>
+    </script> -->
 
     <!-- <script type="text/javascript">
         $(document).ready(function() {

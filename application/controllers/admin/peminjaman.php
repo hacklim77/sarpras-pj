@@ -34,34 +34,39 @@
             $this->admin_temp->load('templates/admin','admin/peminjaman/detail',$data);
         }
 
-        public function konfirmasi($id)
+        public function konfirmasi($id = null)
         {
             cek_not_login();
             $data['admin'] = $this->db->get_where('user',['nama_user' => $this->session->userdata('nama_user')])->row_array();
             $data['konfirmasi'] = $this->M_barang->getpinjamstat($id);
-            // $data['upstat'] = $this->M_barang->getidpj($id);
+
             $status = $this->input->post('status');
             $penomoran = $this->input->post('penomoran');
             $id_barang_pinjam = $this->input->post('id_barang_pinjam');
+
+            $this->db->trans_start();
 
             $this->db->set('status',$status);
             $this->db->set('penomoran',$penomoran);
             $this->db->where('id_barang_pinjam',$id_barang_pinjam);
             $this->db->update('barang_pinjam');
 
-            redirect($_SERVER['HTTP_REFERER']);
+            $this->db->trans_complete();
 
-            /* if ($u == true) {
-                echo "<script type='text/javascript'>
-                    alert('Data Peminjaman berhasil diupdate!');
-                    window.location.href = '".$_SERVER['HTTP_REFERER']."';
-                </script>";
+            if ($this->db->trans_status() === FALSE) {
+                $this->session->set_flashdata('Msg','<div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>Status Barang</strong> Gagal diupdate!
+                </div>');
+                redirect($_SERVER['HTTP_REFERER']);
             } else{
-                echo "<script type='text/javascript'>
-                    alert('Data Peminjaman gagal diupdate!');
-                    window.location.href = '".$_SERVER['HTTP_REFERER']."';
-                </script>";
-            } */
+                $this->session->set_flashdata('Msg','<div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>Status Barang</strong> Berhasil diupdate!
+                </div>');
+                redirect($_SERVER['HTTP_REFERER']);
+            }
+
 
         }
 
