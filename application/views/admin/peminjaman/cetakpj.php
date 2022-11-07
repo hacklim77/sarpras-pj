@@ -67,28 +67,18 @@
                                             <?php endforeach ?>
                                         </tbody>
                                     </table>
-                                    <table class="table-responsive">
-
-				<tr align="center" style="font-weight: bold;">
-                    <td style="width: 40%;"></td>
-                    <td style="width: 40%;"></td>
-                    <td style="width: 20%;"></td>
-                </tr>
-				<tr align = "center" style="font-weight: bold;">
-					<td></td>
-					<td></td>
-					<td>Petugas,</td>
-				</tr>
-				<tr align = "center">
-					<td><br><br></td>
-					<td><br><br></td>
-				</tr>
-				<tr align = "center" style="font-weight: bold;">
-					<td></td>
-					<td></td>
-					<td><?= $this->session->nama_user ?></td>
-				</tr>
-            </table>
+                                    <table width="100%">
+                                        <tr>
+                                            <th width="40%"></th>
+                                            <th width="40%"></th>
+                                            <th width="30%" style="text-align:center;">Petugas</th>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td style="text-align:center;"><br><br><?= $this->session->nama_user ?></td>
+                                        </tr>
+                                    </table>
                                     <!-- <input class="btn btn-success" style="float: right;" type="submit" value="Update Status"> -->
                                 <!-- </form> -->
                                 </div>
