@@ -152,9 +152,9 @@
                 searching: false,
                 dom: 'Bfrtip',
                 buttons: [
-                    'pdf',
-                    'excel',
-                    'print'
+                    {extend:'pdf',title:'Laporan Peminjaman Alat Sarpras',className:'btn btn-primary'},
+                    {extend:'excel',className:'btn btn-success'},
+                    {extend:'print',title:'Laporan Peminjaman Alat Sarpras',className:'btn btn-dark',align:'center'}
                 ]
             } );
         </script>
