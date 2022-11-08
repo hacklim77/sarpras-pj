@@ -27,10 +27,10 @@
         {
             cek_not_login();
             $data['admin'] = $this->db->get_where('user',['nama_user' => $this->session->userdata('nama_user')])->row_array();
-            $data['title'] = 'Surat Peminjaman Barang';
+            $data['title'] = 'Laporan Peminjaman';
             $data['pj'] = $this->M_barang->getpj($id);
             $data['konfirmasi'] = $this->M_barang->getpinjamid($id);
-            $this->cetak_temp->load('templates/cetak','admin/peminjaman/cetakpj',$data);
+            $this->cetak_temp->load('templates/cetak','admin/laporan/cetaklaporan',$data);
         }
 
     }

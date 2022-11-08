@@ -11,10 +11,11 @@
                             <div class="panel panel-default">
                                 <!-- /.panel-heading -->
                                 <div class="panel-body">
-                                <h3 class="page-header text-center"><?= $title ?></h3>
+                                <h3 class="text-center mt-3"><?= $title ?></h3>
+                                <h4 class="text-center mt-3">Sarana Prasarana STIKES Nasional</h4>
                                 <?= $this->session->flashdata('alert') ?>
                                 <?php foreach ($pj as $k):?>
-                                <table>
+                                <table class="border-top-0">
                                 <tr>
                                     <td style="padding: 5px;">Nama Peminjam</td>
                                     <td style="padding: 5px;">:</td>
@@ -27,7 +28,7 @@
                                 </tr>
                                 </table>
                                 <?php endforeach ?>
-                                <table class="table table-responsive">
+                                <table class="table table-bordered table-responsive">
                                     <thead>
                                         <tr>
                                         <th scope="col">No</th>
@@ -69,9 +70,11 @@
                                     </table>
                                     <table width="100%">
                                         <tr>
-                                            <th width="40%"></th>
-                                            <th width="40%"></th>
-                                            <th width="30%" style="text-align:center;">Petugas</th>
+                                            <th width="30%"></th>
+                                            <th width="35%"></th>
+                                            <th width="35%" style="text-align:center;">
+                                            Petugas
+                                        </th>
                                         </tr>
                                         <tr>
                                             <td></td>
