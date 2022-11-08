@@ -23,13 +23,13 @@
             $this->admin_temp->load('templates/admin','admin/laporan/index',$data);
         }
 
-        public function cetaklaporan($id)
+        public function cetaklaporan()
         {
-            cek_not_login();
             $data['admin'] = $this->db->get_where('user',['nama_user' => $this->session->userdata('nama_user')])->row_array();
-            $data['title'] = 'Laporan Peminjaman';
-            $data['pj'] = $this->M_barang->getpj($id);
-            $data['konfirmasi'] = $this->M_barang->getpinjamid($id);
+            $bulan = $this->input->post('bulan');
+            $tahun = $this->input->post('tahun');
+            $data['title'] = 'Sarpras Administrator | Laporan';
+            $data['dt_keluar'] = $this->M_barang->cetaklpr($bulan,$tahun);
             $this->cetak_temp->load('templates/cetak','admin/laporan/cetaklaporan',$data);
         }
 

@@ -11,7 +11,12 @@
                             <div class="panel panel-default">
                                 <!-- /.panel-heading -->
                                 <div class="panel-body">
-                                    <form class="form-inline" method="POST" style="margin-bottom: 10px;" action="<?= base_url('admin/laporan')  ?>">
+                                <!-- <a class="btn btn-primary" target="_blank" style="float: right;" href="<?= base_url('admin/laporan/cetaklaporan') ?>"><i class="fa fa-print"></i> Cetak</a> -->
+
+                                    <form class="form-inline" method="post" style="margin-bottom: 10px;" action="<?= base_url('admin/laporan')  ?>">
+                                    <!-- <span>dari Tanggal:</span><input class="form-control" name="tgl_awal" type="date">
+                                    <span>ke Tanggal:</span><input class="form-control" name="tgl_akhir" type="date">
+                                    <input class="btn btn-primary btn-sm" type="submit" value="cari"> -->
                                         <!-- <input type="month" name="pilih"> -->
                                         <select class="form-control" name="bulan">
                                                 <option>--Pilih Bulan--</option>
@@ -39,7 +44,7 @@
                                         <input class="btn btn-primary btn-sm" type="submit" value="cari">
                                     </form>
                                     <div class="table-responsive">
-                                        <table class="table table-bordered table-hover">
+                                        <table class="table table-bordered table-hover" id="datalaporan">
                                             <thead>
                                                 <tr>
                                                     <th>No</th>

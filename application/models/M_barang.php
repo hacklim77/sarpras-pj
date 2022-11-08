@@ -127,6 +127,29 @@
 
             return $k->result_array();
         }
+        
+        /* public function getmonth($bulan,$tahun)
+        {
+            $k = $this->db->query("
+                SELECT * FROM barang_keluar
+                WHERE tgl_keluar = '$tahun'-'$bulan'
+            ");
+            return $k->result_array();
+        } */
+
+        public function cetaklpr($bulan,$tahun)
+        {
+            /* $k = $this->db->query("
+                SELECT * FROM barang_keluar
+                WHERE tgl_keluar = '$tahun'-'$bulan'
+            "); */
+            $k = $this->db->query("
+                SELECT * FROM barang_keluar
+                WHERE YEAR(tgl_keluar) = '$tahun' AND MONTH(tgl_keluar) = '$bulan'
+            ");
+
+            return $k->result_array();
+        }
 
 
     }
