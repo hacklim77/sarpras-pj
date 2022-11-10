@@ -14,8 +14,55 @@
                                 <?= $this->session->flashdata('Msg') ?>
                                 <a class="btn btn-primary" target="_blank" style="float: right;" href="<?= base_url('admin/peminjaman/cetak/').$this->uri->segment(4) ?>"><i class="fa fa-print"></i> Cetak</a>
                                 <?php foreach ($pj as $k):?>
-                                <table>
-                                <tr>
+                                    <table style="width: 100%;">
+                                        <tbody>
+                                            <tr>
+                                                <td style="width: 50%;">
+                                                    <table style="width:40%">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td style="width: 35%;">Nama Peminjam</td>
+                                                                <td style="width: 3%;">:</td>
+                                                                <td style="width: 57.7188px;">Your Name</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="width: 57.6406px;">NIM</td>
+                                                                <td style="width: 57.6406px;">:</td>
+                                                                <td style="width: 57.7188px;">1896498</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="width: 57.6406px;">Divisi</td>
+                                                                <td style="width: 57.6406px;">:</td>
+                                                                <td style="width: 57.7188px;">Prodi/UKM</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                                <td style="width: 50%;">
+                                                    <table style="width:40%">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td style="width: 35%;">Nomor Keluar</td>
+                                                                <td style="width: 3%;">:</td>
+                                                                <td style="width: 58.7188px;">xxxxxxxxx</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="width: 58.6406px;">No Handphone</td>
+                                                                <td style="width: 58.6406px;">:</td>
+                                                                <td style="width: 58.7188px;">08xxxxxxxx</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="width: 58.6406px;">&nbsp;</td>
+                                                                <td style="width: 58.6406px;">&nbsp;</td>
+                                                                <td style="width: 58.7188px;">&nbsp;</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                <!-- <tr>
                                     <td style="padding: 5px;">Nama Peminjam</td>
                                     <td style="padding: 5px;">:</td>
                                     <td style="padding: 5px;"><?= $k['nama_peminjam'] ?></td>
@@ -24,7 +71,7 @@
                                     <td style="padding: 5px;">Nomor Keluar</td>
                                     <td style="padding: 5px;">:</td>
                                     <td style="padding: 5px;"><?= $k['no_keluar'] ?></td>
-                                </tr>
+                                </tr> -->
                                 </table>
                                 <?php endforeach ?>
                                 <table class="table">

@@ -15,18 +15,54 @@
                                 <h4 class="text-center mt-3">Sarana Prasarana STIKES Nasional</h4>
                                 <?= $this->session->flashdata('alert') ?>
                                 <?php foreach ($pj as $k):?>
-                                <table class="border-top-0">
-                                <tr>
-                                    <td style="padding: 5px;">Nama Peminjam</td>
-                                    <td style="padding: 5px;">:</td>
-                                    <td style="padding: 5px;"><?= $k['nama_peminjam'] ?></td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 5px;">Nomor Keluar</td>
-                                    <td style="padding: 5px;">:</td>
-                                    <td style="padding: 5px;"><?= $k['no_keluar'] ?></td>
-                                </tr>
-                                </table>
+                                    <table style="width: 100%;">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <table>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td style="padding: 5px;">Nama Peminjam</td>
+                                                                <td style="padding: 5px;">:</td>
+                                                                <td style="padding: 5px;">Your Name</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="padding: 5px;">NIM</td>
+                                                                <td style="padding: 5px;">:</td>
+                                                                <td style="padding: 5px;">1896498</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="padding: 5px;">Divisi</td>
+                                                                <td style="padding: 5px;">:</td>
+                                                                <td style="padding: 5px;">Prodi/UKM</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                                <td>
+                                                    <table>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td style="padding: 5px;">Nomor Keluar</td>
+                                                                <td style="padding: 5px;">:</td>
+                                                                <td style="padding: 5px;">xxxxxxxxx</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="padding: 5px;">No Handphone</td>
+                                                                <td style="padding: 5px;">:</td>
+                                                                <td style="padding: 5px;">08xxxxxxxx</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>&nbsp;</td>
+                                                                <td>&nbsp;</td>
+                                                                <td>&nbsp;</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 <?php endforeach ?>
                                 <table class="table table-bordered table-responsive">
                                     <thead>
@@ -72,9 +108,12 @@
                                         <tr>
                                             <th width="30%"></th>
                                             <th width="35%"></th>
-                                            <th width="35%" style="text-align:center;">
-                                            Petugas
-                                        </th>
+                                            <th width="35%" style="text-align:center;">Sukoharjo, <?= date('d F Y')?></th>
+                                        </tr>
+                                        <tr>
+                                            <td width="30%"></td>
+                                            <td width="35%"></td>
+                                            <td width="35%" style="text-align:center;">Petugas</td>
                                         </tr>
                                         <tr>
                                             <td></td>

@@ -4,12 +4,12 @@
 
         public function getbarang()
         {
-            return $this->db->get('barang')->result_array();
+            //return $this->db->get('barang')->result_array();
 
-            /* $this->db->select('*');
+            $this->db->select('*');
             $this->db->from('barang');
             $this->db->not_like('jumlah', '0');
-            return $this->db->get()->result_array(); */
+            return $this->db->get()->result_array();
         }
 
         public function getallbarang()
