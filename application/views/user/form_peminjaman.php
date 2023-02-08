@@ -3,7 +3,7 @@
         <h3>Form Peminjaman</h3>
     </div>
     <div class="card-body">
-        <form action="<?= base_url('peminjaman/pinjam') ?>" method="post">
+        <form action="<?= base_url('peminjaman/pinjam') ?>" method="post" enctype="multipart/form-data">
             <div class="form-row">
                 <input type="hidden" name="no_keluar" id="no_keluar">
                     <div class="form-group col-md-6">
@@ -46,7 +46,10 @@
                         </p>
                     </div>
             </div>
-
+            <div class="form-group">
+                <label class="fw-500">Lampiran Surat</label>
+                <br><input type="file" name="lampiran" id="lampiran" required>
+            </div>
             <div class="form-group">
                 <label class="fw-500">Keterangan Peminjaman</label>
                 <textarea name="keterangan" class="form-control" rows="5" required></textarea>

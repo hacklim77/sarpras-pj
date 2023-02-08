@@ -64,7 +64,7 @@
         public function getpinjamid($id)
         {
             $q = $this->db->query("
-                SELECT barang_keluar.no_keluar,barang_pinjam.id_barang_keluar, barang_keluar.nama_peminjam,barang_keluar.tgl_keluar,barang_keluar.tgl_kembali,barang_keluar.status_kembali,barang.nama_barang,barang_pinjam.jumlah,barang_pinjam.status,barang_pinjam.penomoran,barang_pinjam.id_barang,barang_pinjam.id_barang_pinjam
+                SELECT barang_keluar.no_keluar,barang_pinjam.id_barang_keluar, barang_keluar.nama_peminjam,barang_keluar.tgl_keluar,barang_keluar.tgl_kembali,barang_keluar.status_kembali,barang.nama_barang,barang_pinjam.jumlah,barang_pinjam.status,barang_pinjam.penomoran,barang_pinjam.id_barang,barang_pinjam.id_barang_pinjam,barang.kode_barang
                 FROM barang_pinjam
                 JOIN barang_keluar ON barang_pinjam.id_barang_keluar=barang_keluar.id_barang_keluar
                 JOIN barang ON barang_pinjam.id_barang=barang.id_barang
@@ -76,7 +76,13 @@
 
         public function getpinjamstat($id)
         {
-            $q = $this->db->get_where('barang_pinjam',array('id_barang_pinjam' => $id));
+            $this->db->select('*');
+            $this->db->from('barang_pinjam');
+            $this->db->join('barang','barang.id_barang = barang_pinjam.id_barang');
+            $this->db->where('barang_pinjam.id_barang_pinjam',$id);
+            $q = $this->db->get();
+
+            // $q = $this->db->get_where('barang_pinjam',array('id_barang_pinjam' => $id));
 
             /* $q = $this->db->query("
                 SELECT barang_keluar.no_keluar,barang_pinjam.id_barang_keluar, barang_keluar.nama_peminjam,barang_keluar.tgl_keluar,barang_keluar.tgl_kembali,barang_keluar.status_kembali,barang.nama_barang,barang_pinjam.jumlah,barang_pinjam.status,barang_pinjam.penomoran,barang_pinjam.id_barang,barang_pinjam.id_barang_pinjam
@@ -112,6 +118,7 @@
             $q = $this->db->query("
             SELECT DISTINCT barang_keluar.no_keluar,barang_keluar.nama_peminjam FROM barang_pinjam
             JOIN barang_keluar ON barang_pinjam.id_barang_keluar = barang_keluar.id_barang_keluar
+            JOIN barang ON barang.id_barang = barang_pinjam.id_barang
             WHERE barang_pinjam.id_barang_keluar = ".$id."
             ");
 

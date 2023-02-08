@@ -72,6 +72,28 @@
             $jumlah = $this->input->post('jumlah[]');
             $keterangan = $this->input->post('keterangan');
             $status = 0;
+            $surat = $_FILES['lampiran'];
+
+            if ($surat != '') {
+                $this->load->library('upload');
+                $config = array(
+                    'upload_path' => './surat/',
+                    'allowed_types' => 'pdf|jpg|jpeg',
+                    'overwrite' => true,
+                    'max_size' => 600,
+                    'file_name' => 'Lampiran-'.$nama_peminjam.'-'.$tglkeluar
+                );
+                $this->upload->initialize($config);
+
+                if (!$this->upload->do_upload('lampiran')) {
+                    $error = $this->upload->display_errors();
+                    echo $error;
+                } else{
+                    $this->upload->do_upload('lampiran');
+                    $sr = $this->upload->data();
+                    $surat = $sr['file_name'];
+                }
+            }
 
             $pinjam = explode("/",$barangpinjam);
 
@@ -88,7 +110,8 @@
                 'tgl_keluar' => $tglkeluar,
                 'tgl_kembali' => date('Y-m-d',strtotime($hari,strtotime($tglkeluar))),
                 'keterangan' => $keterangan,
-                'status_kembali' => $status
+                'status_kembali' => $status,
+                'surat' => $surat
             );
 
             $this->user_temp->load('templates/core','user/index',$data);

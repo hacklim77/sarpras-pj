@@ -22,6 +22,7 @@
                                                     <th>Tanggal Pinjam</th>
                                                     <th>Tanggal Kembali</th>
                                                     <th>Keterangan</th>
+                                                    <th>Lampiran</th>
                                                     <!-- <th>Status Kembali</th> -->
                                                     <th></th>
                                                 </tr>
@@ -36,6 +37,7 @@
                                                     <td><?= $key['tgl_keluar'] ?></td>
                                                     <td><?= $key['tgl_kembali'] ?></td>
                                                     <td><?= $key['keterangan'] ?></td>
+                                                    <td><a href="<?= base_url('surat/'.$key['surat']) ?>" download><?= $key['surat'] ?></a></td>
                                                     <!-- <td>
                                                         <?php
                                                         if ($key['status_kembali'] == 0) {

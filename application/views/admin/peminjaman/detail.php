@@ -62,16 +62,6 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                <!-- <tr>
-                                    <td style="padding: 5px;">Nama Peminjam</td>
-                                    <td style="padding: 5px;">:</td>
-                                    <td style="padding: 5px;"><?= $k['nama_peminjam'] ?></td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 5px;">Nomor Keluar</td>
-                                    <td style="padding: 5px;">:</td>
-                                    <td style="padding: 5px;"><?= $k['no_keluar'] ?></td>
-                                </tr> -->
                                 </table>
                                 <?php endforeach ?>
                                 <table class="table">
@@ -103,7 +93,7 @@
                                                     <td><?= $key['jumlah'] ?></td>
                                                     <td><?= $key['tgl_keluar'] ?></td>
                                                     <td><?= $key['tgl_kembali'] ?></td>
-                                                    <td><?= nl2br($key['penomoran']) ?></td>
+                                                    <td><?= nl2br($key['kode_barang']) ?></td>
                                                     <td>
                                                         <?php
                                                             if ($key['status'] == 0) {
@@ -149,12 +139,14 @@
                                                         <?= form_open_multipart('admin/peminjaman/konfirmasi/'.$key['id_barang_pinjam']) ?>
                                                         <input type="hidden" name="id_barang_pinjam" value="<?= $key['id_barang_pinjam'] ?>">
                                                         <!-- <input type="text" name="id_barang_pinjam" value="<?= $key->id_barang_pinjam ?>"> -->
-                                                        <!-- <div class="form-group">
-                                                            <input class="form-control" type="text" name="penomoran" value="<?= $key['penomoran'] ?>" placeholder="Masukkan Nomor Inventaris">
-                                                        </div> -->
+                                                        
+                                                        <div class="form-group">
+                                                            <label>Jumlah Pinjam</label>
+                                                            <input class="form-control" type="number" name="jumlah" value="<?= $key['jumlah'] ?>">
+                                                        </div>
                                                         <div class="form-group">
                                                             <label>Nomor Inventaris</label>
-                                                            <textarea class="form-control" rows="3" name="penomoran"><?= $key['penomoran'] ?></textarea>
+                                                            <textarea class="form-control" rows="3" name="penomoran"><?= $key['kode_barang'] ?></textarea>
                                                         </div>
                                                         <div class="form-group">
                                                             <select name="status" class="form-control">
