@@ -40,12 +40,14 @@
             $data['admin'] = $this->db->get_where('user',['nama_user' => $this->session->userdata('nama_user')])->row_array();
             $data['konfirmasi'] = $this->M_barang->getpinjamstat($id);
 
+            $jumlah = $this->input->post('jumlah');
             $status = $this->input->post('status');
             $penomoran = $this->input->post('penomoran');
             $id_barang_pinjam = $this->input->post('id_barang_pinjam');
 
             $this->db->trans_start();
 
+            $this->db->set('jumlah',$jumlah);
             $this->db->set('status',$status);
             $this->db->set('penomoran',$penomoran);
             $this->db->where('id_barang_pinjam',$id_barang_pinjam);
