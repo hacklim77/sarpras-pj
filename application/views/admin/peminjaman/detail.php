@@ -93,7 +93,7 @@
                                                     <td><?= $key['jumlah'] ?></td>
                                                     <td><?= $key['tgl_keluar'] ?></td>
                                                     <td><?= $key['tgl_kembali'] ?></td>
-                                                    <td><?= nl2br($key['kode_barang']) ?></td>
+                                                    <td><?= nl2br($key['penomoran']) ?></td>
                                                     <td>
                                                         <?php
                                                             if ($key['status'] == 0) {
@@ -146,7 +146,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Nomor Inventaris</label>
-                                                            <textarea class="form-control" rows="3" name="penomoran"><?= $key['kode_barang'] ?></textarea>
+                                                            <textarea class="form-control" rows="3" name="penomoran"><?= $key['penomoran'] ?></textarea>
                                                         </div>
                                                         <div class="form-group">
                                                             <select name="status" class="form-control">
