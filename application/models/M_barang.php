@@ -158,5 +158,12 @@
             return $k->result_array();
         }
 
+        public function search($src)
+        {
+            $this->db->select('*');
+            $this->db->from('barang');
+            $this->db->like('nama_barang', $src);
+            return $this->db->get();
+        }
 
     }

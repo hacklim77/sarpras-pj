@@ -28,8 +28,18 @@
             $data['avail'] = $this->M_barang->getbarangpinjam($data['tgl']);
             $data['nomor'] = $this->M_barang->getnomor();
 
-
             $this->load->view('user/listbarang',$data);
+        }
+
+        public function searchlist()
+        {
+
+            $src = $this->input->get('search');
+            
+            $data['barang'] = $this->M_barang->search($src)->result_array();
+            $data['nomor'] = $this->M_barang->getnomor();
+
+            $this->load->view('user/tampil',$data);
         }
 
         public function join()
